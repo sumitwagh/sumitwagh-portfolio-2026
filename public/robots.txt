@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sumitwagh.com/sitemap.xml
