@@ -12,8 +12,7 @@ export default function Work() {
         path="/work"
       />
       <Reveal>
-        <p className="text-[15px] uppercase text-ink/50 dark:text-white/50">Case Studies</p>
-        <h1 className="mt-3 text-[clamp(2.4rem,5vw,3.75rem)]">Selected Work</h1>
+        <h1 className="text-[clamp(2.4rem,5vw,3.75rem)]">Selected Work</h1>
         <p className="mt-5 max-w-xl text-lg text-ink/60 dark:text-white/60">
           A closer look at how I approach problems — the thinking, the process, and the outcomes.
         </p>

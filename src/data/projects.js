@@ -6,6 +6,7 @@ export const projects = [
   /* ───────────────────────── 1 · LEGALYZE AI ───────────────────────── */
   {
     slug: 'legalyze-ai',
+    brand: { name: 'Legalyze', accent: '.ai', glyph: 'chat', bg: 'linear-gradient(145deg,#1e3a8a,#3b82f6)', fg: '#ffffff', accentColor: '#bfdbfe' },
     title: 'Legalyze AI',
     subtitle: 'AI legal assistant for case files',
     category: 'Legal Tech · SaaS',
@@ -70,6 +71,7 @@ export const projects = [
   /* ─────────────────── 2 · EATING DISORDER SUPPORT APP ─────────────────── */
   {
     slug: 'recovery-companion',
+    brand: { name: 'Recovery', accent: '', glyph: 'heart', bg: 'linear-gradient(145deg,#6b7f5a,#8ea56d)', fg: '#fdfbf5', accentColor: '#e9efdc' },
     title: 'Recovery Companion',
     subtitle: 'A compassionate recovery companion',
     category: 'Health · Mobile App',
@@ -137,6 +139,7 @@ export const projects = [
   /* ──────────────── 3 · EXCELERON LANDING PAGE REDESIGN ──────────────── */
   {
     slug: 'exceleron-redesign',
+    brand: { name: 'Exceleron', accent: '', glyph: 'spark', bg: 'linear-gradient(150deg,#0a0f22,#22306a)', fg: '#ffffff', accentColor: '#8ea2ff' },
     title: 'Exceleron Landing Page',
     subtitle: 'A clarity-first payments redesign',
     category: 'Web · Redesign',
@@ -194,6 +197,7 @@ export const projects = [
   /* ───────────────────── 4 · MYUSAGE MOBILE APP ───────────────────── */
   {
     slug: 'myusage-app',
+    brand: { name: 'MyUsage', accent: '', glyph: 'bolt', bg: 'linear-gradient(145deg,#123fbd,#3b82f6)', fg: '#ffffff', accentColor: '#bfdbfe' },
     title: 'MyUsage Mobile App',
     subtitle: 'Rethinking prepaid utility management',
     category: 'Mobile · Redesign',
@@ -256,6 +260,7 @@ export const projects = [
   /* ───────────────────── 5 · SPINE UI DESIGN SYSTEM ───────────────────── */
   {
     slug: 'spine-ui',
+    brand: { name: 'Spine UI', accent: '', glyph: 'spine', bg: 'linear-gradient(150deg,#141414,#2a2a2a)', fg: '#ffffff', accentColor: '#f6a5c0' },
     title: 'Spine UI Design System',
     subtitle: 'A scalable product design system',
     category: 'Design System',
@@ -314,6 +319,7 @@ export const projects = [
   /* ───────────────────────── 6 · NERD NEWS ───────────────────────── */
   {
     slug: 'nerd-news',
+    brand: { name: 'NerdNews', accent: '', glyph: 'glasses', bg: 'linear-gradient(150deg,#5b21b6,#a78bfa)', fg: '#ffffff', accentColor: '#ede9fe' },
     title: 'Nerd News',
     subtitle: 'A personalised news app for the curious',
     category: 'Mobile · Content',
@@ -372,6 +378,7 @@ export const projects = [
   /* ───────────────────── 7 · PRIME CARE KIOSK ───────────────────── */
   {
     slug: 'prime-care-kiosk',
+    brand: { name: 'PrimeCare', accent: '', glyph: 'cross', bg: 'linear-gradient(150deg,#4c1d95,#7c3aed)', fg: '#ffffff', accentColor: '#ddd6fe' },
     title: 'Prime Care Kiosk',
     subtitle: 'An accessible patient-intake kiosk',
     category: 'Healthcare · Kiosk',

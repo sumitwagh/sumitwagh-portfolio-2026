@@ -13,7 +13,7 @@ export default {
         display: ['"Halyard Display"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       maxWidth: {
-        site: '80rem',
+        site: '90rem',
         read: '44rem',
       },
       transitionTimingFunction: {

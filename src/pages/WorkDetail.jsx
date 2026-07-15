@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, ArrowRight } from '@phosphor-icons/react'
 import { getProject, getAdjacent, projects } from '../data/projects'
 import Reveal from '../components/Reveal'
 import Seo from '../components/Seo'
+import BrandThumb from '../components/BrandThumb'
 import { scrollToTarget } from '../lib/scroll'
 
 // Responsive body copy: 20px/30px desktop, scaled down for tablet/mobile
@@ -94,7 +95,7 @@ function BeforeAfter({ items }) {
 }
 
 function SectionHead({ label }) {
-  return <p className="eyebrow mb-6">{label}</p>
+  return <h2 className="mb-7 text-[26px] leading-tight md:text-[30px]">{label}</h2>
 }
 
 export default function WorkDetail() {
@@ -168,19 +169,18 @@ export default function WorkDetail() {
       {/* Title + meta */}
       <header className="container-site mt-12 md:mt-14">
         <Reveal>
-          <p className="eyebrow">{project.category}</p>
-          <h1 className="mt-4 max-w-4xl text-[clamp(2.2rem,4.8vw,3.6rem)] leading-[1.08]">{project.title}</h1>
-          <p className="mt-4 max-w-2xl text-xl text-ink/60 dark:text-white/60">{project.subtitle}</p>
+          <h1 className="max-w-4xl text-[clamp(2.4rem,5vw,4rem)] leading-[1.05]">{project.title}</h1>
+          <p className="mt-5 max-w-2xl text-xl text-ink/60 dark:text-white/60">{project.subtitle}</p>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <dl className="mt-10 flex flex-wrap gap-x-16 gap-y-6 border-t border-line pt-8 dark:border-white/10">
+          <dl className="mt-10 flex flex-wrap gap-x-14 gap-y-7 border-t border-line pt-8 dark:border-white/10">
             {project.meta
               .filter((m) => m.label.toLowerCase() !== 'year')
               .map((m) => (
                 <div key={m.label}>
-                  <dt className="eyebrow !text-[13px]">{m.label}</dt>
-                  <dd className="mt-1.5 text-[22px]">{m.value}</dd>
+                  <dt className="text-[13px] uppercase text-ink/45 dark:text-white/40">{m.label}</dt>
+                  <dd className="mt-2 text-[16px] text-ink dark:text-white">{m.value}</dd>
                 </div>
               ))}
           </dl>
@@ -348,8 +348,10 @@ export default function WorkDetail() {
         <div className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {others.map((p) => (
             <Link key={p.slug} to={`/work/${p.slug}`} className="group block">
-              <div className="overflow-hidden rounded-2xl bg-[#f4f4f4] dark:bg-white/5">
-                <img src={p.cover} alt={p.title} loading="lazy" className="aspect-[16/10] w-full object-cover transition-transform duration-700 ease-smooth group-hover:scale-[1.05]" />
+              <div className="overflow-hidden rounded-2xl shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-500 ease-smooth group-hover:-translate-y-1 group-hover:shadow-[0_20px_40px_-18px_rgba(0,0,0,0.35)]">
+                <div className="aspect-[16/10] w-full transition-transform duration-700 ease-smooth group-hover:scale-[1.04]">
+                  <BrandThumb brand={p.brand} />
+                </div>
               </div>
               <div className="mt-4 flex items-center justify-between">
                 <h3 className="text-lg transition-colors group-hover:text-ink/60 dark:group-hover:text-white/70">{p.title}</h3>

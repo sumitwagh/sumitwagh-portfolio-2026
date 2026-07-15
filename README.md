@@ -73,3 +73,16 @@ Vercel (`vercel.json`) or Netlify (`public/_redirects`). Build `npm run build`, 
 - Work detail: featured image moved to the very top, above the title and content.
 - Uses: Workstation, Design Tools, and Productivity now use the supplied device photos and tool logos, all normalised into uniform chips (Webflow/Notion/Spotify keep brand marks).
 - About: "Journey so far" rebuilt to the reference layout — role on the left, company + date on the right, current role emphasised and past roles muted, company logos retained as timeline markers.
+
+## v8 updates
+- Container widened to 1440px (max-w-site) and applied consistently.
+- Hero title set to 72px / 71px line-height (responsive down), stronger and more premium.
+- Work listing (Home, Selected Work, "More work") now shows a **brand logo lockup** per project (glyph + wordmark on a brand gradient) instead of a UI screenshot — kept separate from the hero image.
+- Project detail: featured hero image stays at the top and is independent of the listing logo; category label removed (title leads); metadata at 16px with improved hierarchy; section headings raised from 15px to 30px with more breathing room.
+- Selected Work: "Case Studies" label removed.
+- Shots: rebuilt as a two-row infinite marquee (opposite directions, pause on hover, seamless loop, edge fade, rounded + shadowed cards with hover-scale, lazy-loaded, reduced-motion friendly).
+
+### Managing project media
+Each project in `src/data/projects.js` now has two independent assets:
+- `brand` — the logo lockup shown on listing/grid pages (edit `name`, `accent`, `glyph`, `bg`, `fg`, `accentColor`; glyphs live in `src/components/BrandThumb.jsx`). Swap in a real client logo by rendering an `<img>` there.
+- `cover` — the featured hero image shown only on the project detail page.

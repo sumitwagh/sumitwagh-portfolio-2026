@@ -25,14 +25,14 @@ export default function Home() {
 
       {/* Hero — purely typographic, no portrait */}
       <section className="container-site pt-20 md:pt-28 lg:pt-32">
-        <h1 className="w-full max-w-[18ch] text-[clamp(1.9rem,5vw,4.5rem)] leading-[1.08]">
+        <h1 className="w-full max-w-[16ch] text-[clamp(2.4rem,7vw,72px)] leading-[0.99]">
           {words.map((w, i) => (
             <motion.span
               key={w + i}
               initial={reduce ? false : { opacity: 0, y: '0.5em' }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.03 * i, ease: [0.22, 1, 0.36, 1] }}
-              className="mr-[0.22em] inline-block"
+              className="mr-[0.2em] inline-block"
             >
               {w}
             </motion.span>

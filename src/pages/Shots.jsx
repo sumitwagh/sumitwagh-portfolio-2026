@@ -1,104 +1,98 @@
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { X } from '@phosphor-icons/react'
-import { shots } from '../data/content'
 import Reveal from '../components/Reveal'
 import Seo from '../components/Seo'
 
-const spanClass = {
-  wide: 'sm:col-span-2',
-  tall: 'row-span-2',
-  normal: '',
+// Dashboard / desktop UI screenshots for the marquee.
+const wf = import.meta.glob('../assets/work/**/*.jpg', { eager: true, import: 'default' })
+const pick = (p) => wf[`../assets/work/${p}`]
+
+const rowA = [
+  { src: pick('legalyze/home.jpg'), alt: 'Legalyze — case dashboard' },
+  { src: pick('legalyze/templates.jpg'), alt: 'Legalyze — question templates' },
+  { src: pick('exceleron/screen-1.jpg'), alt: 'Exceleron — landing' },
+  { src: pick('spine/colors.jpg'), alt: 'Spine UI — colour system' },
+  { src: pick('legalyze/addcase.jpg'), alt: 'Legalyze — add case' },
+  { src: pick('exceleron/screen-3.jpg'), alt: 'Exceleron — section' },
+  { src: pick('legalyze/subscription.jpg'), alt: 'Legalyze — billing' },
+  { src: pick('spine/grid.jpg'), alt: 'Spine UI — grid' },
+]
+
+const rowB = [
+  { src: pick('legalyze/feature.jpg'), alt: 'Legalyze — features' },
+  { src: pick('exceleron/screen-2.jpg'), alt: 'Exceleron — customers' },
+  { src: pick('spine/alerts.jpg'), alt: 'Spine UI — alerts & toasts' },
+  { src: pick('legalyze/addtemplate.jpg'), alt: 'Legalyze — build template' },
+  { src: pick('exceleron/screen-4.jpg'), alt: 'Exceleron — footer' },
+  { src: pick('legalyze/hover.jpg'), alt: 'Legalyze — interaction' },
+  { src: pick('spine/radius.jpg'), alt: 'Spine UI — radius' },
+  { src: pick('exceleron/screen-5.jpg'), alt: 'Exceleron — hero' },
+]
+
+function Row({ items, reverse = false, duration = 60 }) {
+  // Duplicate the set so the -50% translate loops seamlessly
+  const doubled = [...items, ...items]
+  return (
+    <div className="marquee overflow-hidden">
+      <div
+        className={`marquee-track gap-5 md:gap-6 ${reverse ? 'is-reverse' : ''}`}
+        style={{ '--dur': `${duration}s` }}
+      >
+        {doubled.map((item, i) => (
+          <figure
+            key={i}
+            className="group relative h-40 shrink-0 overflow-hidden rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] ring-1 ring-black/5 transition-transform duration-500 ease-smooth hover:z-10 hover:scale-[1.04] dark:ring-white/10 sm:h-48 md:h-56 lg:h-64"
+            aria-hidden={i >= items.length}
+          >
+            <img
+              src={item.src}
+              alt={i < items.length ? item.alt : ''}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-auto max-w-none object-cover"
+            />
+          </figure>
+        ))}
+      </div>
+    </div>
+  )
 }
 
 export default function Shots() {
-  const [active, setActive] = useState(null)
-
   return (
-    <main className="container-site pt-16 md:pt-24">
+    <main className="pt-16 md:pt-24">
       <Seo
         title="Shots"
-        description="A gallery of UI design shots and visual explorations by Sumit Wagh — interfaces, brand systems, and product details."
+        description="A gallery of dashboard and UI design shots by Sumit Wagh — healthcare SaaS, fintech, and product interfaces."
         path="/shots"
       />
-      <Reveal>
-        <p className="text-[15px] uppercase text-ink/50 dark:text-white/50">Gallery</p>
-        <h1 className="mt-3 text-[clamp(2.4rem,5vw,3.75rem)]">Shots</h1>
-        <p className="mt-5 max-w-xl text-lg text-ink/60 dark:text-white/60">
-          Interface explorations, brand details, and the small moments that make a product feel right.
-        </p>
-      </Reveal>
-
-      <div className="mt-12 grid auto-rows-[minmax(200px,auto)] grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-3">
-        {shots.map((s, i) => (
-          <Reveal
-            key={s.title + i}
-            delay={(i % 3) * 0.06}
-            className={`${spanClass[s.span] || ''}`}
-          >
-            <button
-              type="button"
-              onClick={() => setActive(s)}
-              className="group relative block h-full w-full overflow-hidden rounded-2xl bg-[#f4f4f4] text-left dark:bg-white/5"
-            >
-              <img
-                src={s.image}
-                alt={s.title}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 ease-smooth group-hover:scale-[1.05]"
-              />
-              <span className="pointer-events-none absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/55 via-black/0 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="text-[15px] text-white">{s.title}</span>
-                <span className="text-[13px] text-white/70">{s.tag}</span>
-              </span>
-            </button>
-          </Reveal>
-        ))}
+      <div className="container-site">
+        <Reveal>
+          <p className="eyebrow">Gallery</p>
+          <h1 className="mt-3 text-[clamp(2.4rem,5vw,3.75rem)] leading-[1.08]">Shots</h1>
+          <p className="mt-6 max-w-2xl text-[20px] leading-[30px] text-ink/65 dark:text-white/65">
+            A rolling look at dashboards, interfaces, and product details — much of it from healthcare and SaaS work.
+          </p>
+        </Reveal>
       </div>
 
-      <p className="mt-10 text-center text-sm text-ink/45 dark:text-white/40">
-        More shots coming soon — also on{' '}
-        <a href="https://dribbble.com/sumitwagh" target="_blank" rel="noreferrer" className="link-underline text-ink/70 dark:text-white/70">
-          Dribbble
-        </a>
-        .
-      </p>
+      {/* Two infinite rows, opposite directions, pause on hover */}
+      <div className="mt-14 flex flex-col gap-5 md:mt-20 md:gap-6">
+        <Reveal>
+          <Row items={rowA} duration={64} />
+        </Reveal>
+        <Reveal delay={0.1}>
+          <Row items={rowB} reverse duration={72} />
+        </Reveal>
+      </div>
 
-      {/* Lightbox */}
-      <AnimatePresence>
-        {active && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setActive(null)}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm md:p-10"
-          >
-            <button
-              type="button"
-              aria-label="Close"
-              className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-            >
-              <X size={22} weight="light" />
-            </button>
-            <motion.figure
-              initial={{ scale: 0.94, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.94, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              onClick={(e) => e.stopPropagation()}
-              className="max-h-[85vh] max-w-4xl"
-            >
-              <img src={active.image} alt={active.title} className="max-h-[78vh] w-full rounded-2xl object-contain" />
-              <figcaption className="mt-4 text-center text-white/80">
-                <span className="text-base">{active.title}</span>
-                <span className="mx-2 text-white/40">·</span>
-                <span className="text-sm text-white/60">{active.tag}</span>
-              </figcaption>
-            </motion.figure>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="container-site">
+        <p className="mt-14 text-center text-sm text-ink/45 dark:text-white/40">
+          More shots on{' '}
+          <a href="https://dribbble.com/sumitwagh" target="_blank" rel="noreferrer" className="link-underline text-ink/70 dark:text-white/70">
+            Dribbble
+          </a>
+          .
+        </p>
+      </div>
     </main>
   )
 }
