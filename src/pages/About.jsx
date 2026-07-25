@@ -1,121 +1,128 @@
-import { ArrowUpRight } from '@phosphor-icons/react'
-import { books, journey } from '../data/content'
+import { books } from '../data/content'
 import Reveal from '../components/Reveal'
 import Seo from '../components/Seo'
-import profile from '../assets/img/profile.jpg'
+import signature from '../assets/img/signature.svg'
+import portrait from '../assets/img/portrait.jpg'
+import TravelGallery from '../components/TravelGallery'
 
-// 36px section heading, responsive-safe
 const sectionHeading = 'text-[28px] leading-tight sm:text-[32px] lg:text-[36px]'
+
+const story = [
+  `I grew up in Sillod, a small town an hour from the Ajanta caves, where the family computer was the most interesting thing in the house. It did exactly what you told it to — no more, no less — and that bargain still fascinates me.`,
+  `I took a Computer Science degree, moved to Hyderabad, and spent a few years building for the web in PHP, JavaScript, HTML and CSS. Code taught me how products actually work; it took a freelancer friend nudging me toward UI/UX before I realised I cared far more about why they work.`,
+  `Seven years on, I design for healthcare and SaaS — revenue cycle management, remote patient monitoring, EHR systems, and the AI tools rearranging all of it. These are products people open because something needs doing, often while tired, rushed, and responsible for someone else.`,
+  `Good design here is rarely the clever bit; it's the boring discipline of removing one more step, naming one more thing properly, and making the scary action feel reversible. That's the work I find most worth doing well.`,
+]
 
 export default function About() {
   return (
-    <main className="container-site pt-16 md:pt-20">
+    <main className="pt-16 md:pt-20">
       <Seo
         title="About"
-        description="From a small town near the Ajanta caves to designing healthcare products — the story and journey of designer Sumit Wagh."
+        description="From a small town near the Ajanta caves to designing healthcare products — the story of designer Sumit Wagh."
         path="/about"
       />
+{/* About */}
+<section className="container-site py-8 md:py-12">
+  {/* Header */}
+  <Reveal>
+    <h1 className="mt-3 text-[clamp(2.4rem,5vw,3.75rem)] leading-[1.08] tracking-[-0.02em]">
+      The person
+      behind the
+      products.
+    </h1>
 
-      {/* Intro — tighter spacing, stronger hierarchy */}
-      <div className="grid items-center gap-10 md:grid-cols-[1fr_280px] md:gap-14">
-        <Reveal>
-          <p className="eyebrow">About</p>
-          <h1 className="mt-4 text-[clamp(2.2rem,4.8vw,3.6rem)] leading-[1.1]">
-            Designer by curiosity, engineer by training, storyteller by habit.
-          </h1>
-        </Reveal>
+    <p className="mt-8 max-w-4xl text-[20px] leading-9 text-ink/65 dark:text-white/60">
+      I'm{" "}
+      <span className="font-medium text-ink dark:text-white">
+        Sumit Wagh
+      </span>
+      , a Product Designer based in Pune, India. For the past seven years,
+      I've been designing enterprise healthcare, AI, and SaaS products that
+      simplify complex workflows into intuitive experiences.
+    </p>
+  </Reveal>
 
-        <Reveal delay={0.15} className="order-first md:order-none">
-          <img
-            src={profile}
-            alt="Portrait of Sumit Wagh"
-            className="aspect-[4/5] w-full rounded-3xl object-cover grayscale"
-          />
-        </Reveal>
+  {/* Content */}
+  <div className="mt-20 grid gap-14 md:grid-cols-[320px_minmax(0,1fr)] lg:grid-cols-[340px_minmax(0,1fr)] lg:gap-24">
+
+    {/* Left */}
+    <Reveal className="flex flex-col items-center md:sticky md:top-28 md:self-start">
+
+      <figure className="overflow-hidden rounded-[18px] border border-line bg-[#f5f5f5] dark:border-white/10 dark:bg-white/[0.03]">
+        <img
+          src={portrait}
+          alt="Sumit Wagh"
+          className="w-full object-cover"
+          loading="lazy"
+        />
+      </figure>
+
+      <img
+        src={signature}
+        alt="Signature"
+        className="mt-6 h-12 w-auto opacity-90 dark:invert"
+      />
+
+
+    </Reveal>
+
+    {/* Story */}
+    <Reveal delay={0.1}>
+
+      <div className="space-y-14">
+
+        <section>
+          <p className="mb-3 text-md uppercase text-ink/70 dark:text-white/40" style={{ letterSpacing: "0.12em" }}>
+            How It Started
+          </p>
+
+          <p className="max-w-[680px] text-[20px] leading-[1.9] text-ink/75 dark:text-white/70">
+            {story[0]}
+          </p>
+        </section>
+
+        <section>
+          <p className="mb-3 text-md uppercase text-ink/70 dark:text-white/40" style={{ letterSpacing: "0.12em" }}>
+            From Code to Design
+          </p>
+
+          <p className="max-w-[680px] text-[20px] leading-[1.9] text-ink/75 dark:text-white/70">
+            {story[1]}
+          </p>
+        </section>
+
+        <section>
+          <p className="mb-3 text-md uppercase text-ink/70 dark:text-white/40" style={{ letterSpacing: "0.12em" }}>
+            Why Healthcare
+          </p>
+
+          <p className="max-w-[680px] text-[20px] leading-[1.9] text-ink/75 dark:text-white/70">
+            {story[2]}
+          </p>
+        </section>
+
+        <section>
+          <p className="mb-3 text-md uppercase text-ink/70 dark:text-white/40" style={{ letterSpacing: "0.12em" }}>
+            What Keeps Me Curious
+          </p>
+
+          <p className="max-w-[680px] text-[20px] leading-[1.9] text-ink/75 dark:text-white/70">
+            {story[3]}
+          </p>
+        </section>
+
       </div>
 
-      {/* Story — reduced gap after the intro, larger body to match Work Detail */}
-      <section className="mt-10 max-w-read space-y-6 text-[16px] leading-[24px] text-ink/85 dark:text-white/80 sm:text-[18px] sm:leading-[27px] md:mt-12 lg:text-[20px] lg:leading-[30px]">
-        <Reveal>
-          <p>
-            I grew up in Sillod, a small town beside the world-famous Ajanta caves in India. Between cricket
-            matches and hours lost on the family computer, I found the thing that would shape my whole career:
-            a machine that did exactly what you told it to. That fascination led me to a Bachelor&rsquo;s in
-            Computer Science, and then to Hyderabad to learn to build for the web — PHP, JavaScript, HTML, CSS.
-          </p>
-        </Reveal>
-        <Reveal>
-          <p>
-            Code taught me how products work; design taught me why they matter. A freelancer friend, Swapnil,
-            pulled me into the world of UI/UX and I never looked back. For 7+ years now I&rsquo;ve been designing
-            interfaces for healthcare and SaaS — Revenue Cycle Management, remote patient monitoring, EHR systems,
-            and the AI tools reshaping all of them.
-          </p>
-        </Reveal>
-        <Reveal>
-          <p>
-            My sweet spot is complex, high-stakes products: the ones where a confusing screen has real
-            consequences. I care about systems that scale and the small interactions that make them feel human.
-            Away from the screen, you&rsquo;ll find me travelling, gaming, or working through another book.
-          </p>
-        </Reveal>
-      </section>
+    </Reveal>
 
-      {/* Journey — reference layout: role left, company + date right */}
-      <section className="mt-20 md:mt-24">
-        <Reveal>
-          <h2 className={sectionHeading}>Journey so far</h2>
-          <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-ink/55 dark:text-white/55">
-            In a nutshell — 7+ years of experience, a portfolio of products shipped across healthcare and
-            SaaS, and a few 0-to-1 journeys along the way.
-          </p>
-        </Reveal>
-
-        <ul className="mt-10 border-t border-line dark:border-white/10">
-          {journey.map((j, i) => (
-            <Reveal as="li" key={j.company} delay={i * 0.08} className="border-b border-line dark:border-white/10">
-              <a
-                href={j.href}
-                target="_blank"
-                rel="noreferrer"
-                className={`group flex flex-col gap-3 py-7 transition-opacity duration-300 sm:flex-row sm:items-center sm:justify-between sm:gap-6 md:py-8 ${
-                  i === 0
-                    ? 'text-ink dark:text-white'
-                    : 'text-ink/45 hover:text-ink/80 dark:text-white/40 dark:hover:text-white/75'
-                }`}
-              >
-                {/* Role — left */}
-                <h3 className="text-[clamp(1.5rem,3vw,2rem)] leading-tight">{j.role}</h3>
-
-                {/* Company + date — right */}
-                <div className="flex items-center gap-4 sm:justify-end sm:text-right">
-                  <div className="order-2 sm:order-1">
-                    <p className="flex items-center gap-2 text-[clamp(1.25rem,2.4vw,1.75rem)] leading-tight sm:justify-end">
-                      {j.company}
-                      <ArrowUpRight
-                        size={20}
-                        weight="light"
-                        className="opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
-                      />
-                    </p>
-                    <p className="mt-1 text-[15px] text-current opacity-70">{j.period}</p>
-                  </div>
-                  <span className="order-1 flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-line bg-white p-1.5 dark:border-white/10 sm:order-2">
-                    {j.logoSrc ? (
-                      <img src={j.logoSrc} alt={`${j.company} logo`} className="h-full w-full object-contain" />
-                    ) : (
-                      <span className="text-sm text-ink">{j.logo}</span>
-                    )}
-                  </span>
-                </div>
-              </a>
-            </Reveal>
-          ))}
-        </ul>
-      </section>
+  </div>
+</section>
+      {/* Off screen — horizontal travel gallery */}
+      <TravelGallery />
 
       {/* Books — premium hover interaction */}
-      <section className="mt-20 md:mt-24">
+      <section className="container-site mt-24 md:mt-32">
         <Reveal>
           <h2 className={sectionHeading}>Books I really like</h2>
         </Reveal>

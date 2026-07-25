@@ -11,6 +11,15 @@
   font-display: swap;
 }
 
+/* Regular cut — used ONLY for buttons and navigation menu items */
+@font-face {
+  font-family: 'Halyard Nav';
+  src: url('./assets/fonts/halyard-nav-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -45,11 +54,11 @@
     @apply bg-[#0b0b0c] text-[#f2f2f2];
   }
 
-  /* No letter-spacing across the entire application */
+  /* No letter-spacing across the app — except nav & buttons (see below) */
   *,
   *::before,
   *::after {
-    letter-spacing: normal !important;
+    letter-spacing: normal;
   }
 
   ::selection {
@@ -91,10 +100,17 @@
     @apply text-[15px] uppercase text-ink/50 dark:text-white/50;
   }
 
-  .btn-pill {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[15px] transition-all duration-300 ease-smooth;
-    letter-spacing: normal;
-  }
+.btn-pill {
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[14px] uppercase transition-all duration-300 ease-smooth;
+  font-family: 'Halyard Nav', system-ui, sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.nav-link {
+  @apply cursor-pointer;
+  font-family: 'Halyard Nav', system-ui, sans-serif;
+  letter-spacing: 0.06em;
+}
 
   .btn-dark {
     @apply btn-pill bg-ink text-white hover:scale-[1.03] hover:bg-black active:scale-[0.98] dark:bg-white dark:text-ink;
@@ -130,8 +146,14 @@
     animation-direction: reverse;
   }
   .marquee:hover .marquee-track,
+  .marquee-plain:hover .marquee-track,
   .marquee-track:focus-within {
     animation-play-state: paused;
+  }
+
+  /* Full-bleed variant without the edge fade */
+  .marquee-plain {
+    overflow: hidden;
   }
   @keyframes marquee {
     from { transform: translateX(0); }
@@ -139,10 +161,38 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .marquee-track { animation: none; }
-    .marquee {
+    .marquee,
+    .marquee-plain {
       overflow-x: auto;
       -webkit-mask-image: none;
       mask-image: none;
     }
   }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Travel polaroids — base rotation via --r, straighten + lift on hover */
+  .polaroid {
+    transform: rotate(var(--r, 0deg));
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .polaroid:hover {
+    transform: rotate(0deg) translateY(-8px);
+  }
+}
+
+/* Experience card backgrounds (theme-aware) */
+:root { --exp-open: rgba(0,0,0,0.02); --exp-closed: rgba(0,0,0,0); }
+.dark { --exp-open: rgba(255,255,255,0.04); --exp-closed: rgba(255,255,255,0); }
+
+button,
+a,
+[role="button"] {
+  cursor: pointer;
 }

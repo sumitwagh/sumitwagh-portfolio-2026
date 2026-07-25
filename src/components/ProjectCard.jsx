@@ -1,14 +1,18 @@
 import { Link } from 'react-router-dom'
 import Reveal from './Reveal'
-import BrandThumb from './BrandThumb'
 
 export default function ProjectCard({ project, delay = 0 }) {
   return (
     <Reveal delay={delay}>
       <Link to={`/work/${project.slug}`} className="group block" aria-label={project.title}>
-        <div className="overflow-hidden rounded-3xl shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-500 ease-smooth group-hover:-translate-y-1 group-hover:shadow-[0_24px_50px_-20px_rgba(0,0,0,0.35)]">
-          <div className="aspect-[16/10] w-full transition-transform duration-700 ease-smooth group-hover:scale-[1.03]">
-            <BrandThumb brand={project.brand} />
+        <div className="overflow-hidden rounded-3xl transition-transform duration-500 ease-smooth group-hover:-translate-y-1.5">
+          <div className="aspect-[16/10] w-full overflow-hidden bg-[#f4f4f4] dark:bg-white/5">
+            <img
+              src={project.thumb}
+              alt={project.title}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-[900ms] ease-smooth group-hover:scale-[1.04]"
+            />
           </div>
         </div>
         <div className="mt-5">

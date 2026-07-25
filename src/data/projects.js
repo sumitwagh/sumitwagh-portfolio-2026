@@ -2,7 +2,7 @@
 const files = import.meta.glob('../assets/work/**/*.jpg', { eager: true, import: 'default' })
 const img = (p) => files[`../assets/work/${p}`]
 
-export const projects = [
+const rawProjects = [
   /* ───────────────────────── 1 · LEGALYZE AI ───────────────────────── */
   {
     slug: 'legalyze-ai',
@@ -19,6 +19,7 @@ export const projects = [
       { label: 'Year', value: '2024' },
     ],
     links: [{ label: 'legalyze.ai', href: 'https://www.legalyze.ai/' }],
+    prototype: 'https://www.figma.com/proto/0vXt1ZfoHsgmWlZa5as1Et/Legalyze?node-id=43-714&p=f&viewport=805%2C500%2C0.04&t=OKDbY7HKbFJNXqia-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=43%3A714&page-id=0%3A1',
     overview:
       'Legalyze AI helps attorneys and legal teams turn mountains of case documents into instant answers. I designed both the product — the web application lawyers work in every day — and the marketing website that explains the promise and converts visitors into trials. The challenge was to make something genuinely powerful feel calm and trustworthy in a profession where accuracy is everything.',
     problem: [
@@ -51,12 +52,12 @@ export const projects = [
     visual:
       'The identity leans into a deep, confident palette with generous whitespace and precise typography — the visual language of trust. Interface states are deliberate and legible, with hover and empty states designed so the product feels considered at every touch.',
     gallery: [
-      { img: img('legalyze/home.jpg'), caption: 'The case dashboard — every matter, its status, and next actions in one calm view.' },
-      { img: img('legalyze/addcase.jpg'), caption: 'Adding a case: uploading and organising documents is reduced to a few confident steps.' },
-      { img: img('legalyze/templates.jpg'), caption: 'Question templates let teams turn their best thinking into a reusable asset.' },
-      { img: img('legalyze/addtemplate.jpg'), caption: 'Building a template — structured, flexible, and fast.' },
-      { img: img('legalyze/subscription.jpg'), caption: 'Transparent subscription management, designed to remove billing anxiety.' },
-      { img: img('legalyze/feature.jpg'), caption: 'The marketing site mirrors the product, so the promise matches the experience.' },
+      { img: img('legalyze/design-1.jpg') },
+      { img: img('legalyze/design-2.jpg') },
+      { img: img('legalyze/design-3.jpg') },
+      { img: img('legalyze/design-4.jpg') },
+      { img: img('legalyze/design-5.jpg') },
+      { img: img('legalyze/design-6.jpg') },
     ],
     outcome: [
       'A cohesive experience where the marketing site and product speak the same visual language.',
@@ -76,9 +77,10 @@ export const projects = [
     subtitle: 'A compassionate recovery companion',
     category: 'Health · Mobile App',
     year: '2024',
-    layout: 'phone',
+    layout: 'wide',
     cover: img('eating/cover.jpg'),
     links: [],
+    prototype: 'https://www.figma.com/proto/NdJTIGVKalPqtSHiLMTY64/Disorder-Questionnaire-Mobile-App?node-id=203-2946&p=f&viewport=5766%2C1063%2C0.24&t=9MNZwZgK6LPab6JN-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=203%3A2946&page-id=1414%3A11867',
     meta: [
       { label: 'Role', value: 'Lead UI/UX Designer' },
       { label: 'Platform', value: 'iOS · Mobile' },
@@ -116,14 +118,10 @@ export const projects = [
     visual:
       'The palette is soft and warm — creams, gentle peaches, and calming neutrals — paired with rounded shapes and friendly illustration. The typography is generous and highly readable. Every choice is made to lower the emotional temperature and help people feel held.',
     gallery: [
-      { img: img('eating/screen-1.jpg') },
-      { img: img('eating/screen-3.jpg') },
-      { img: img('eating/screen-4.jpg') },
-      { img: img('eating/screen-5.jpg') },
-      { img: img('eating/screen-6.jpg') },
-      { img: img('eating/screen-8.jpg') },
-      { img: img('eating/screen-9.jpg') },
-      { img: img('eating/screen-11.jpg') },
+      { img: img('eating/design-1.jpg') },
+      { img: img('eating/design-2.jpg') },
+      { img: img('eating/design-3.jpg') },
+      { img: img('eating/design-4.jpg') },
     ],
     outcome: [
       'A complete, cohesive mobile experience designed around safety and encouragement.',
@@ -147,7 +145,7 @@ export const projects = [
     layout: 'wide',
     cover: img('exceleron/cover.jpg'),
     links: [{ label: 'exceleron.com', href: 'https://www.exceleron.com/' }],
-    prototype: 'https://www.figma.com/proto/51FnZw5PcvT480WqQEzvcn/https---exceleron.com-?node-id=2183-214&starting-point-node-id=2183%3A214',
+    prototype: 'https://www.figma.com/proto/51FnZw5PcvT480WqQEzvcn/https---exceleron.com-?node-id=2183-214&viewport=2008%2C945%2C0.17&t=TZ9oT0ZC8wIn0VJc-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2183%3A214&show-proto-sidebar=1&page-id=0%3A1',
     meta: [
       { label: 'Role', value: 'Web & Visual Designer' },
       { label: 'Scope', value: 'Landing Page Redesign' },
@@ -202,9 +200,10 @@ export const projects = [
     subtitle: 'Rethinking prepaid utility management',
     category: 'Mobile · Redesign',
     year: '2024',
-    layout: 'phone',
+    layout: 'wide',
     cover: img('myusage/cover.jpg'),
     links: [{ label: 'exceleron.com/products', href: 'https://www.exceleron.com/products/' }],
+    prototype: 'https://www.figma.com/proto/c86sC8s49eumgXmzNNWD2Z/Myusages?node-id=686-4239&viewport=-6144%2C-1665%2C0.52&t=62l5bn1NPGBWbMJq-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=686%3A4505&page-id=229%3A1266&show-proto-sidebar=1',
     meta: [
       { label: 'Role', value: 'Product Designer' },
       { label: 'Platform', value: 'iOS · Android' },
@@ -236,16 +235,12 @@ export const projects = [
     visual:
       'The redesign trades the old flat, low-contrast screens for a bright, modern system with clear typographic hierarchy and purposeful colour — so the critical numbers read instantly, even at a glance.',
     beforeAfter: [
-      { before: img('myusage/before-1.jpg'), after: img('myusage/after-1.jpg'), label: 'Home & balance' },
-      { before: img('myusage/before-4.jpg'), after: img('myusage/after-3.jpg'), label: 'Usage & details' },
+      { combined: img('myusage/ba-1.jpg') },
+      { combined: img('myusage/ba-2.jpg') },
     ],
     gallery: [
-      { img: img('myusage/after-1.jpg') },
-      { img: img('myusage/after-2.jpg') },
-      { img: img('myusage/after-3.jpg') },
-      { img: img('myusage/after-5.jpg') },
-      { img: img('myusage/after-6.jpg') },
-      { img: img('myusage/after-8.jpg') },
+      { img: img('myusage/design-1.jpg') },
+      { img: img('myusage/design-2.jpg') },
     ],
     outcome: [
       'A dramatically clearer home screen that answers “Am I OK?” instantly.',
@@ -324,9 +319,10 @@ export const projects = [
     subtitle: 'A personalised news app for the curious',
     category: 'Mobile · Content',
     year: '2023',
-    layout: 'phone',
+    layout: 'wide',
     cover: img('nerdnews/cover.jpg'),
     links: [],
+    prototype: 'https://www.figma.com/proto/vMCtm0Yymg6uFEVajzyViM/Nerd-News-Chitranu?node-id=2342-1922&viewport=790%2C897%2C0.14&t=Ery5ZwUbNrPP88dW-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2342%3A1922&page-id=2221%3A3311',
     meta: [
       { label: 'Role', value: 'UI/UX Designer' },
       { label: 'Platform', value: 'iOS · Mobile' },
@@ -358,12 +354,9 @@ export const projects = [
     visual:
       'A bright, friendly aesthetic with clear typography and playful accents gives Nerd News personality without sacrificing readability. The interest-picker turns setup into a genuinely enjoyable moment.',
     gallery: [
-      { img: img('nerdnews/screen-9.jpg') },
-      { img: img('nerdnews/screen-10.jpg') },
-      { img: img('nerdnews/screen-11.jpg') },
-      { img: img('nerdnews/screen-5.jpg') },
-      { img: img('nerdnews/screen-6.jpg') },
-      { img: img('nerdnews/screen-1.jpg') },
+      { img: img('nerdnews/design-1.jpg') },
+      { img: img('nerdnews/design-2.jpg') },
+      { img: img('nerdnews/design-3.jpg') },
     ],
     outcome: [
       'An onboarding that captures interests without feeling like work.',
@@ -386,7 +379,7 @@ export const projects = [
     layout: 'tablet',
     cover: img('primecare/cover.jpg'),
     links: [],
-    prototype: 'https://www.figma.com/proto/MDpCdSg4G0qNE5yvJULg0G/Steven-Charlap?node-id=2107-3036&starting-point-node-id=2107%3A3036',
+    prototype: 'https://www.figma.com/proto/81D9BFgtHlukGz0pxU8UhC/PrimeCare?node-id=2107-3036&viewport=-54%2C757%2C0.18&t=HpGvroFIpow5qTSG-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2107%3A3036&page-id=2107%3A1355',
     meta: [
       { label: 'Role', value: 'UI/UX Designer' },
       { label: 'Platform', value: 'Kiosk · Touch' },
@@ -440,6 +433,10 @@ export const projects = [
       'Designing for a public kiosk is a masterclass in inclusive design. When you build for the person who finds tech hardest, you build something better for everyone.',
   },
 ]
+
+// One image drives both surfaces: drop in a new cover and the listing
+// thumbnail updates with it. A project can still override `thumb` explicitly.
+export const projects = rawProjects.map((p) => ({ ...p, thumb: p.thumb ?? p.cover }))
 
 export const getProject = (slug) => projects.find((p) => p.slug === slug)
 

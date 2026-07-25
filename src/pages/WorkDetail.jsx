@@ -4,8 +4,9 @@ import { ArrowLeft, ArrowUpRight, ArrowRight } from '@phosphor-icons/react'
 import { getProject, getAdjacent, projects } from '../data/projects'
 import Reveal from '../components/Reveal'
 import Seo from '../components/Seo'
-import BrandThumb from '../components/BrandThumb'
 import { scrollToTarget } from '../lib/scroll'
+import { playTick, playSelect } from '../lib/sound'
+import ViewingBar from '../components/ViewingBar'
 
 // Responsive body copy: 20px/30px desktop, scaled down for tablet/mobile
 const prose = 'text-[16px] leading-[24px] sm:text-[18px] sm:leading-[27px] lg:text-[20px] lg:leading-[30px]'
@@ -13,7 +14,7 @@ const prose = 'text-[16px] leading-[24px] sm:text-[18px] sm:leading-[27px] lg:te
 function Paras({ items, tone = 'text-ink/85 dark:text-white/80' }) {
   const list = Array.isArray(items) ? items : [items]
   return (
-    <div className={`space-y-5 ${prose} ${tone}`}>
+    <div className={`max-w-4xl space-y-5 ${prose} ${tone}`}>
       {list.map((p) => (
         <p key={p.slice(0, 32)}>{p}</p>
       ))}
@@ -23,7 +24,7 @@ function Paras({ items, tone = 'text-ink/85 dark:text-white/80' }) {
 
 function Points({ items }) {
   return (
-    <ul className="mt-8 space-y-4">
+    <ul className="mt-8 max-w-4xl space-y-4">
       {items.map((pt) => (
         <li key={pt.slice(0, 30)} className="flex gap-4">
           <span className="mt-[13px] h-1.5 w-1.5 shrink-0 rounded-full bg-ink/40 dark:bg-white/40" aria-hidden="true" />
@@ -52,7 +53,7 @@ function Gallery({ layout, items }) {
         {items.map((g, i) => (
           <Reveal key={i} delay={(i % 2) * 0.06}>
             <img src={g.img} alt={g.caption || 'Kiosk screen'} loading="lazy" className="w-full rounded-2xl border border-black/5 shadow-sm dark:border-white/10" />
-            {g.caption && <p className="mt-3 text-[15px] text-ink/55 dark:text-white/55">{g.caption}</p>}
+            {g.caption && <p className="mt-3 text-[13px] text-ink/45 dark:text-white/40">{g.caption}</p>}
           </Reveal>
         ))}
       </div>
@@ -63,8 +64,8 @@ function Gallery({ layout, items }) {
       {items.map((g, i) => (
         <Reveal key={i}>
           <figure>
-            <img src={g.img} alt={g.caption || 'Screen'} loading="lazy" className="w-full rounded-2xl border border-black/5 dark:border-white/10" />
-            {g.caption && <figcaption className="mt-4 text-[15px] text-ink/55 dark:text-white/55 md:text-center">{g.caption}</figcaption>}
+            <img src={g.img} alt={g.caption || 'Screen'} loading="lazy" className="w-full rounded-2xl border border-black/5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:border-white/10" />
+            {g.caption && <figcaption className="mt-4 text-center text-[13px] text-ink/45 dark:text-white/40">{g.caption}</figcaption>}
           </figure>
         </Reveal>
       ))}
@@ -78,29 +79,52 @@ function BeforeAfter({ items }) {
       {items.map((pair, i) => (
         <Reveal key={i}>
           {pair.label && <p className="mb-4 text-[15px] text-ink/60 dark:text-white/60">{pair.label}</p>}
-          <div className="grid grid-cols-2 gap-4 md:gap-6">
+
+          {/* A single composed comparison, or a side-by-side pair */}
+          {pair.combined ? (
             <figure>
-              <img src={pair.before} alt="Before redesign" loading="lazy" className="w-full rounded-[1.5rem] border border-black/5 opacity-90 grayscale dark:border-white/10" />
-              <figcaption className="mt-3 text-center text-[13px] uppercase text-ink/40 dark:text-white/40">Before</figcaption>
+              <img
+                src={pair.combined}
+                alt="Before and after the redesign"
+                loading="lazy"
+                className="w-full rounded-2xl border border-black/5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] dark:border-white/10"
+              />
             </figure>
-            <figure>
-              <img src={pair.after} alt="After redesign" loading="lazy" className="w-full rounded-[1.5rem] border border-black/5 shadow-sm dark:border-white/10" />
-              <figcaption className="mt-3 text-center text-[13px] uppercase text-ink/60 dark:text-white/60">After</figcaption>
-            </figure>
-          </div>
+          ) : (
+            <div className="grid grid-cols-2 gap-4 md:gap-6">
+              <figure>
+                <img src={pair.before} alt="Before redesign" loading="lazy" className="w-full rounded-[1.5rem] border border-black/5 opacity-90 grayscale dark:border-white/10" />
+                <figcaption className="mt-3 text-center text-[13px] uppercase text-ink/40 dark:text-white/40">Before</figcaption>
+              </figure>
+              <figure>
+                <img src={pair.after} alt="After redesign" loading="lazy" className="w-full rounded-[1.5rem] border border-black/5 shadow-sm dark:border-white/10" />
+                <figcaption className="mt-3 text-center text-[13px] uppercase text-ink/60 dark:text-white/60">After</figcaption>
+              </figure>
+            </div>
+          )}
         </Reveal>
       ))}
     </div>
   )
 }
 
-function SectionHead({ label }) {
-  return <h2 className="mb-7 text-[26px] leading-tight md:text-[30px]">{label}</h2>
+function SectionHead({ label, index }) {
+  return (
+    <div className="mb-8 flex items-baseline gap-4 border-t border-line pt-6 dark:border-white/10">
+      {index != null && (
+        <span className="text-[12px] tabular-nums text-ink/30 dark:text-white/25">
+          {String(index).padStart(2, '0')}
+        </span>
+      )}
+      <h2 className="text-[26px] leading-tight md:text-[30px]">{label}</h2>
+    </div>
+  )
 }
 
 export default function WorkDetail() {
   const { slug } = useParams()
   const project = getProject(slug)
+  const [hovered, setHovered] = useState(null)
   const [active, setActive] = useState('')
   const sectionRefs = useRef({})
 
@@ -154,70 +178,121 @@ export default function WorkDetail() {
     <main className="pt-14 md:pt-20">
       <Seo title={project.title} description={project.overview.slice(0, 155)} path={`/work/${project.slug}`} image={project.cover} />
 
-      {/* Back link */}
-      <div className="container-site">
-        <Link to="/work" className="inline-flex items-center gap-2 text-[15px] text-ink/60 transition-colors hover:text-ink dark:text-white/60 dark:hover:text-white">
-          <ArrowLeft size={16} weight="light" /> All work
+      {/* Return */}
+      <div className="container-site flex justify-center">
+        <Link
+          to="/work"
+          onMouseEnter={() => playTick()}
+          onClick={() => playSelect()}
+          className="group inline-flex items-center gap-2 text-[12px] uppercase text-ink/50 transition-colors duration-300 hover:text-ink dark:text-white/45 dark:hover:text-white"
+          style={{ letterSpacing: '0.12em' }}
+        >
+          <ArrowLeft size={14} weight="bold" className="transition-transform duration-300 ease-smooth group-hover:-translate-x-1" />
+          Return
         </Link>
       </div>
 
-      {/* Featured image — top of the page */}
-      <Reveal className="container-site mt-8">
-        <img src={project.cover} alt={project.title} fetchPriority="high" className="aspect-[16/10] w-full rounded-3xl object-cover md:aspect-[16/9]" />
-      </Reveal>
-
-      {/* Title + meta */}
-      <header className="container-site mt-12 md:mt-14">
+      {/* Title + meta — story first, image after (ktz-style opening) */}
+      <header className="container-site mt-10 text-center md:mt-14">
         <Reveal>
-          <h1 className="max-w-4xl text-[clamp(2.4rem,5vw,4rem)] leading-[1.05]">{project.title}</h1>
-          <p className="mt-5 max-w-2xl text-xl text-ink/60 dark:text-white/60">{project.subtitle}</p>
+          <h1 className="mx-auto max-w-[18ch] text-[clamp(2.2rem,5.4vw,4.25rem)] leading-[1.02]">{project.title}</h1>
+          <p className="mx-auto mt-6 max-w-2xl text-[19px] leading-relaxed text-ink/55 dark:text-white/50 md:text-[21px]">
+            {project.subtitle}
+          </p>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <dl className="mt-10 flex flex-wrap gap-x-14 gap-y-7 border-t border-line pt-8 dark:border-white/10">
-            {project.meta
-              .filter((m) => m.label.toLowerCase() !== 'year')
-              .map((m) => (
-                <div key={m.label}>
-                  <dt className="text-[13px] uppercase text-ink/45 dark:text-white/40">{m.label}</dt>
-                  <dd className="mt-2 text-[16px] text-ink dark:text-white">{m.value}</dd>
-                </div>
-              ))}
+          <dl className="mt-14 grid grid-cols-2 gap-x-8 gap-y-10 border-y border-line py-10 text-center dark:border-white/10 md:grid-cols-4">
+            {project.meta.map((m) => (
+              <div key={m.label}>
+                <dt className="text-[14px] uppercase text-ink/60 dark:text-white/35" style={{ letterSpacing: '0.12em' }}>
+                  {m.label}
+                </dt>
+                <dd className="mt-2 text-[18px] text-ink dark:text-white">{m.value}</dd>
+              </div>
+            ))}
+            {(project.links?.[0] || project.prototype) && (
+              <div>
+                <dt className="text-[14px] uppercase text-ink/60 dark:text-white/35" style={{ letterSpacing: '0.12em' }}>
+                  {project.prototype ? 'Prototype' : 'Live'}
+                </dt>
+                <dd className="mt-2 text-[18px]">
+                  <a
+                    href={project.prototype ?? project.links?.[0]?.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    onMouseEnter={() => playTick()}
+                    className="group inline-flex items-center gap-1 text-ink underline-offset-4 hover:underline dark:text-white"
+                  >
+                    {project.prototype ? 'View prototype' : 'Visit site'}
+                    <ArrowUpRight size={14} weight="light" className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                </dd>
+              </div>
+            )}
           </dl>
         </Reveal>
       </header>
 
+      {/* Featured image */}
+      <Reveal className="container-site mt-14 md:mt-20">
+        <img src={project.cover} alt={project.title} fetchPriority="high" className="aspect-[16/10] w-full rounded-3xl object-cover md:aspect-[16/9]" />
+      </Reveal>
+
       {/* Two-column: left sticky scrollspy nav + right content */}
       <div className="container-site mt-14 md:mt-20">
         <div className="grid gap-8 lg:grid-cols-[180px_1fr] lg:gap-10">
-          {/* Left sticky nav (desktop) */}
+          {/* Left sticky nav (desktop) — numbered index, sibling rows ease back */}
           <aside className="hidden lg:block">
-            <nav className="sticky top-28" aria-label="Case study sections">
-              <ul className="space-y-1 border-l border-line dark:border-white/10">
-                {sections.map((s) => (
-                  <li key={s.id}>
-                    <button
-                      type="button"
-                      onClick={() => scrollTo(s.id)}
-                      className={`-ml-px block border-l-2 py-1.5 pl-4 text-left text-[18px] transition-colors duration-300 ${
-                        active === s.id
-                          ? 'border-ink text-ink dark:border-white dark:text-white'
-                          : 'border-transparent text-ink/45 hover:text-ink/70 dark:text-white/40 dark:hover:text-white/70'
-                      }`}
-                    >
-                      {s.label}
-                    </button>
-                  </li>
-                ))}
+            <nav className="sticky top-28" aria-label="Case study sections" onMouseLeave={() => setHovered(null)}>
+              <p className="mb-5 text-[11px] uppercase text-ink/30 dark:text-white/25" style={{ letterSpacing: '0.14em' }}>
+                Index
+              </p>
+              <ul>
+                {sections.map((s, i) => {
+                  const isActive = active === s.id
+                  const dimmed = hovered !== null && hovered !== i
+                  return (
+                    <li key={s.id}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          playSelect()
+                          scrollTo(s.id)
+                        }}
+                        onMouseEnter={() => {
+                          setHovered(i)
+                          playTick()
+                        }}
+                        className={`group flex w-full items-baseline gap-3 py-2 text-left transition-all duration-500 ease-smooth ${
+                          isActive ? 'text-ink dark:text-white' : 'text-ink/40 dark:text-white/35'
+                        }`}
+                        style={{ opacity: dimmed ? 0.4 : 1 }}
+                      >
+                        <span className="text-[11px] tabular-nums text-ink/25 dark:text-white/20">
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                        <span className="relative text-[17px] leading-snug">
+                          {s.label}
+                          <span
+                            className={`absolute -bottom-0.5 left-0 h-px bg-current transition-all duration-500 ease-smooth ${
+                              isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                            }`}
+                          />
+                        </span>
+                      </button>
+                    </li>
+                  )
+                })}
               </ul>
             </nav>
           </aside>
 
-          {/* Right content */}
-          <div className="max-w-[46rem]">
+          {/* Right content — full available width */}
+          <div className="min-w-0">
             <section id="overview" ref={setRef('overview')} className="scroll-mt-28">
-              <SectionHead label="Overview" />
-              <p className={`${prose} text-ink dark:text-white`}>{project.overview}</p>
+              <SectionHead index={1} label="Overview" />
+              <p className={`${prose} max-w-4xl text-ink dark:text-white`}>{project.overview}</p>
               {project.team?.length > 0 && (
                 <div className="mt-8">
                   <p className="eyebrow !text-[13px]">Team</p>
@@ -228,28 +303,28 @@ export default function WorkDetail() {
 
             {project.problem?.length > 0 && (
               <section id="problem" ref={setRef('problem')} className="mt-16 scroll-mt-28 md:mt-24">
-                <SectionHead label="Problem" />
+                <SectionHead index={2} label="Problem" />
                 <Paras items={project.problem} />
               </section>
             )}
 
             {project.goal && (
               <section id="goal" ref={setRef('goal')} className="mt-16 scroll-mt-28 md:mt-24">
-                <SectionHead label="Goal" />
+                <SectionHead index={3} label="Goal" />
                 <Paras items={project.goal} />
               </section>
             )}
 
             {project.research?.length > 0 && (
               <section id="research" ref={setRef('research')} className="mt-16 scroll-mt-28 md:mt-24">
-                <SectionHead label="Research" />
+                <SectionHead index={4} label="Research" />
                 <Points items={project.research} />
               </section>
             )}
 
             {project.process?.points?.length > 0 && (
               <section id="process" ref={setRef('process')} className="mt-16 scroll-mt-28 md:mt-24">
-                <SectionHead label="Design Process" />
+                <SectionHead index={5} label="Design Process" />
                 <Paras items={project.process.intro} />
                 <Points items={project.process.points} />
               </section>
@@ -264,7 +339,7 @@ export default function WorkDetail() {
 
             {project.features?.length > 0 && (
               <section id="features" ref={setRef('features')} className="mt-16 scroll-mt-28 md:mt-24">
-                <SectionHead label="Key Features" />
+                <SectionHead index={6} label="Key Features" />
                 <div className="grid gap-x-8 gap-y-8 sm:grid-cols-2">
                   {project.features.map((ft, i) => (
                     <Reveal key={ft.title} delay={(i % 2) * 0.06}>
@@ -278,7 +353,7 @@ export default function WorkDetail() {
 
             {project.gallery?.length > 0 && (
               <section id="visual" ref={setRef('visual')} className="mt-16 scroll-mt-28 md:mt-24">
-                <SectionHead label="Visual Design" />
+                <SectionHead index={7} label="Visual Design" />
                 {project.visual && <Paras items={project.visual} />}
                 <Gallery layout={project.layout} items={project.gallery} />
               </section>
@@ -286,8 +361,8 @@ export default function WorkDetail() {
 
             {project.outcome?.length > 0 && (
               <section id="outcome" ref={setRef('outcome')} className="mt-16 scroll-mt-28 md:mt-24">
-                <SectionHead label="Outcome" />
-                <ul className="space-y-6">
+                <SectionHead index={8} label="Outcome" />
+                <ul className="max-w-4xl space-y-6">
                   {project.outcome.map((line, i) => (
                     <Reveal as="li" key={line.slice(0, 30)} delay={i * 0.06} className="flex items-baseline gap-5">
                       <span className="text-sm tabular-nums text-ink/40 dark:text-white/35">{String(i + 1).padStart(2, '0')}</span>
@@ -300,7 +375,7 @@ export default function WorkDetail() {
 
             {project.reflection && (
               <section id="reflection" ref={setRef('reflection')} className="mt-16 scroll-mt-28 md:mt-24">
-                <SectionHead label="Reflection" />
+                <SectionHead index={9} label="Reflection" />
                 <Paras items={project.reflection} />
               </section>
             )}
@@ -348,9 +423,9 @@ export default function WorkDetail() {
         <div className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {others.map((p) => (
             <Link key={p.slug} to={`/work/${p.slug}`} className="group block">
-              <div className="overflow-hidden rounded-2xl shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-500 ease-smooth group-hover:-translate-y-1 group-hover:shadow-[0_20px_40px_-18px_rgba(0,0,0,0.35)]">
-                <div className="aspect-[16/10] w-full transition-transform duration-700 ease-smooth group-hover:scale-[1.04]">
-                  <BrandThumb brand={p.brand} />
+              <div className="overflow-hidden rounded-2xl transition-transform duration-500 ease-smooth group-hover:-translate-y-1.5">
+                <div className="aspect-[16/10] w-full overflow-hidden bg-[#f4f4f4] dark:bg-white/5">
+                  <img src={p.thumb} alt={p.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-[900ms] ease-smooth group-hover:scale-[1.04]" />
                 </div>
               </div>
               <div className="mt-4 flex items-center justify-between">
@@ -361,6 +436,7 @@ export default function WorkDetail() {
           ))}
         </div>
       </section>
+      <ViewingBar title={project.title} />
     </main>
   )
 }

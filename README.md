@@ -86,3 +86,88 @@ Vercel (`vercel.json`) or Netlify (`public/_redirects`). Build `npm run build`, 
 Each project in `src/data/projects.js` now has two independent assets:
 - `brand` — the logo lockup shown on listing/grid pages (edit `name`, `accent`, `glyph`, `bg`, `fg`, `accentColor`; glyphs live in `src/components/BrandThumb.jsx`). Swap in a real client logo by rendering an `<img>` there.
 - `cover` — the featured hero image shown only on the project detail page.
+
+## v9 updates
+- Hero: added the animated profile illustration on the right (responsive two-column, stacks on mobile), an "Open to Freelance & Full-Time Opportunities" availability badge with a live status dot, and worked "Pune, India" into the headline.
+- Buttons + navigation now use the supplied Halyard regular font (only there), with UPPERCASE button/nav labels.
+- Navigation backdrop blur reduced to 7px (subtle glassmorphism).
+- Work cards: removed the shadow; hover is now a clean lift + gentle image scale.
+- Work detail: removed the narrow content cap (content uses the full available width) and rebuilt the vertical section nav in the reference's line-marker style (a rule that grows and darkens for the active section, with the label alongside).
+- Experience: replaced the old timeline with an interactive expandable-card section, placed on the Home page right after Selected Work.
+- About: added a full-bleed horizontal "Off screen" travel gallery — polaroid-style cards with slight rotation, drag/scroll, snap, and hover straighten.
+
+### Placement note (Experience section)
+Recommended and implemented on the **Home page, after Selected Work** — it continues the narrative right after the strongest proof (the work itself), so a first-time visitor reads: what I make → where I've done it, without a click. About keeps the personal story + travel gallery, avoiding duplicate journey content.
+
+## v10 updates
+- Global: kept a slight letter-spacing on nav items and button text (everything else remains untracked).
+- Hero: relocated the availability badge beside the profile illustration with an animated curly connector arrow; renamed the primary button to "Selected Work", which now smooth-scrolls to the Selected Work section on the same page; using the latest profile illustration.
+- Experience: redesigned into "the journey so far" — an alternating timeline (reference-inspired) with stamp-style company logos, date pills, location pins, achievement bullets, a progressive line-draw and scroll-triggered card/node reveals.
+- Footer: full redesign — oversized email CTA with animated underline, live Pune/IST availability status, sitemap/social/back-to-top columns, and a giant gradient "Sumit Wagh" wordmark, all with subtle motion.
+- Uses: delightful hover interactions — item lift + soft shadow, icon chip scale/rotate, and a gentle content shift.
+- Off-screen: the travel gallery is now a full-bleed continuous marquee that loops seamlessly and pauses on hover.
+- About: stronger storytelling hierarchy (eyebrow → headline → lead → quick facts), and the new illustrated B&W portrait blended onto a soft gradient panel.
+
+## v11 updates
+- Reverted the Footer to its previous simple version (closing line + social row), and confirmed the Work Detail section navigation is back to the original left-border style.
+- Featured Work cards now use the actual project thumbnails (16:10, object-cover, consistent hover scale) instead of the brand-logo lockups; Prime Care falls back to its cover image.
+- Hero: fixed the availability-badge arrow (clean curl + arrowhead) and set the layout to 70% content / 30% profile image, responsive down to a single column.
+- Experience: redesigned as "where I have worked" with a list ⇄ timeline toggle — an expandable list view (logos with a connecting line, mono date ranges, asterisk achievement bullets) and a draggable horizontal timeline with year gridlines and a "now" marker. All existing content preserved.
+
+## v12 updates
+- Container narrowed to 1312px (82rem) for more whitespace and easier reading.
+- Hero: new headline — "Product designer making complex things feel obvious." — with a supporting line; the availability note is now a handwritten annotation with a curved arrow (not a badge); the portrait is larger (58/42 split).
+- Experience: timeline/list toggle removed. Rebuilt as a quiet typographic list — hovering a role brings it forward and eases the others back, revealing the summary and tags.
+- **New "Right now" section:** an interactive dotted globe (real Natural Earth landmass data, drag to spin, momentum) that pins the visitor's approximate location next to mine, with live temperatures for both. Location via ipapi.co (no permission prompt), weather via Open-Meteo. Both are keyless, and the section degrades gracefully if either call fails.
+- Work detail: ktz.dk-inspired navigation — a "Return" link, story-first header with Role/Scope/Year/Live metadata, a numbered sticky index whose siblings dim on hover, and a fixed bottom bar showing reading progress, the project you're viewing, a jump to the end, and a sound toggle. Hover/selection play a synthesised tick (Web Audio, no audio files).
+- About: portrait removed. The intro is now purely typographic with a four-column facts row, and the story is signed off with a hand-drawn signature.
+
+### Sound
+Interface sound is **off by default** and toggled from the bottom bar on case-study pages; the choice persists in localStorage. Browsers block audio before a user gesture, so the audio context is created lazily on first interaction.
+
+### Previewing
+`npm run build:preview` produces `dist-preview/index.html` — the entire real app inlined into one shareable file (hash routing so it works from `file://`).
+
+## v13 updates
+- Hero: longer, more specific subheading.
+- Right now: rewritten copy — the heading reports the real distance between you and me, and the closing line reacts to the temperature gap ("You're 4° warmer — I'd trade"). In dark mode the globe is now a near-black sphere with light dots and a soft atmospheric rim, matching the reference.
+- Case studies: title, subtitle and Return link are centre-aligned; metadata sits in a centred rule-bounded row; section headings are numbered with hairline rules; figure captions are monospace and centred.
+- Uses: added the workstation photo below the intro.
+- About: rewritten around a sharper opening ("I design the screens people use on their worst day") and restructured into four titled chapters in a two-column layout, still signed off by hand.
+- Off screen: new line — "I collect flight stubs, questionable street food, and photos of doors."
+- Shots: rebuilt from scratch. Filterable (Everything / Dashboards / Mobile / Design systems) with an animated pill, a masonry grid that preserves each screen's natural aspect ratio, per-shot captions, and a full lightbox with arrow-key and click navigation.
+
+## v14 updates
+- Right now: each location is now a real pin with a label popover (city + temperature) that tracks the sphere as it turns and fades out as the point rotates away. Distance uses the visitor's local convention — miles for the US, UK, Liberia and Myanmar, kilometres everywhere else ("11 miles apart, give or take." / "18 km apart, give or take."). Removed the "give it a spin" note and arrow.
+- Case studies: removed the label above the title; metadata now spans the full container with centred cells; the last field is Live *or* Prototype, linking to whichever the project has.
+- Shots: restored the previous two-row marquee, now using all 19 dashboard/desktop shots.
+- About: the chaptered story is replaced by a single "My Story" paragraph with the signature directly beneath it; the Based in / Experience / Focus / Currently block is gone; the photo strip is full-viewport-width with the edge fade removed (hover still pauses it).
+
+## v15 updates
+- Hero: new profile illustration; the availability note now uses a softer curved arrow that sweeps up toward the illustration, with the arrow leading the text and proper spacing.
+- Earth: reworked the dark-mode shading — a subtle body gradient, a terminator shadow hugging the lower-right limb, a directional rim light and a faint outer atmosphere, so the sphere reads as mass rather than a bright disc pasted on the background.
+- Case studies: new featured/cover images for all seven projects, each normalised to a uniform 16:10 frame (padded with edge-sampled colour rather than cropped, so no mockup is cut). Live/Prototype now links to the Figma prototype for the six projects that have one, and the live site for Spine UI.
+- Shots: 31 new dashboard screenshots, all normalised to an identical 16:9 frame so the two marquee rows stay perfectly even.
+- About: new signature; the "Off screen" section now breaks out of the page container and spans the full viewport width, heading included.
+
+## v16 updates
+- Project images: `cover` is now the single source for a project's imagery — the listing thumbnail derives from it automatically (`thumb: p.thumb ?? p.cover`), so dropping in a new featured image updates the detail page and the cards together. The old duplicate `featured.jpg` files were removed.
+- Shots: removed the edge fade on the marquee rows.
+- About: smaller signature, and the "Pune, India" label is gone.
+- Off screen: the heading sits back inside the page container while the photo strip stays full-bleed.
+
+## v17 updates
+- New featured images for Legalyze AI and Recovery Companion, normalised to the same 16:10 frame as the rest. Because the cover now drives the thumbnail, the listing cards updated with them automatically.
+- New visual designs applied across Legalyze AI (6), Recovery Companion (4), Nerd News (3) and MyUsage (2 screens + 2 before/after). All are composed 3:2 presentation frames, so those case studies now use the full-width `wide` gallery layout instead of the phone grid.
+- `BeforeAfter` now accepts a single `combined` image as well as a `before`/`after` pair, which suits MyUsage's new pre-composed comparisons.
+- Housekeeping: removed a dead `shots` export in content.js and pruned 52 superseded screenshots (the work assets are eagerly globbed, so unused files were still being bundled).
+
+## v17 updates
+- Hero: sharper title ("I design healthcare software people can trust."), a richer subheading, and the availability indicator redesigned as a modern status chip (pulsing dot + monospace label) that links to email. Added a subtle, continuous float to the illustration.
+- Experience: subtitle 16→20px, duration text 13→16px, paragraph 16→18px.
+- Right now: paragraph bumped to 19/22px for stronger hierarchy.
+- Shots: replaced with the 31 new screenshots, now shown in three infinite rows (11 / 11 / 9), alternating direction, no edge fade.
+- About: removed the old title and intro paragraph; the story now runs in a full-width, immersive two-column layout with the new photo and a compelling title ("The long way to obvious."), and the signature sits directly beneath the photo.
+
+## v18 updates
+- About: the Story and Profile now sit inside the standard site container (82rem), aligned with the nav and every other section instead of breaking full-width. Heading spans the measure; below it a balanced photo (fixed ~340px column, sticky) sits beside the story, which is broken into four paragraphs with a lead emphasis for better rhythm, spacing, and use of white space. Consistent padding and alignment across breakpoints.

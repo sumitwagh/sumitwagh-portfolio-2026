@@ -33,7 +33,7 @@ export default function Navbar() {
     <header className="sticky top-4 z-50 md:top-6">
       <div className="container-site">
         <nav
-          className={`flex items-center justify-between rounded-full py-2.5 pl-3 pr-3 backdrop-blur-2xl backdrop-saturate-150 transition-all duration-500 ease-smooth ${
+          className={`flex items-center justify-between rounded-full py-2.5 pl-3 pr-3 backdrop-blur-[7px] backdrop-saturate-150 transition-all duration-500 ease-smooth ${
             scrolled
               ? 'border border-white/50 bg-white/55 shadow-[0_8px_32px_rgba(0,0,0,0.10)] dark:border-white/12 dark:bg-white/[0.08]'
               : 'border border-white/40 bg-white/40 shadow-[0_4px_20px_rgba(0,0,0,0.05)] dark:border-white/8 dark:bg-white/[0.04]'
@@ -57,7 +57,7 @@ export default function Navbar() {
                   <NavLink
                     to={l.to}
                     className={({ isActive }) =>
-                      `relative rounded-full px-4 py-2 text-[17px] transition-colors duration-300 hover:text-ink dark:hover:text-white ${
+                      `nav-link relative rounded-full px-4 py-2 text-[14px] uppercase transition-colors duration-300 hover:text-ink dark:hover:text-white ${
                         isActive ? 'text-ink dark:text-white' : 'text-ink/65 dark:text-white/60'
                       }`
                     }
@@ -82,7 +82,7 @@ export default function Navbar() {
               href={RESUME_URL}
               target="_blank"
               rel="noreferrer"
-              className="ml-1 hidden items-center gap-1.5 rounded-full border border-ink/15 px-4 py-2 text-[15px] text-ink transition-all duration-300 ease-smooth hover:border-ink hover:bg-ink hover:text-white dark:border-white/20 dark:text-white dark:hover:bg-white dark:hover:text-ink md:inline-flex"
+              className="nav-link ml-1 hidden items-center gap-1.5 rounded-full border border-ink/15 px-4 py-2 text-[14px] uppercase text-ink transition-all duration-300 ease-smooth hover:border-ink hover:bg-ink hover:text-white dark:border-white/20 dark:text-white dark:hover:bg-white dark:hover:text-ink md:inline-flex"
             >
               Résumé
               <ArrowUpRight size={16} weight="light" />
@@ -126,7 +126,7 @@ export default function Navbar() {
                     to={l.to}
                     onClick={() => setOpen(false)}
                     className={({ isActive }) =>
-                      `block rounded-2xl px-4 py-3 text-lg transition-colors ${
+                      `nav-link block rounded-2xl px-4 py-3 text-[15px] uppercase transition-colors ${
                         isActive
                           ? 'bg-ink/5 text-ink dark:bg-white/10 dark:text-white'
                           : 'text-ink/70 dark:text-white/70'
@@ -143,7 +143,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-1.5 rounded-2xl px-4 py-3 text-lg text-ink/70 dark:text-white/70"
+                  className="nav-link flex items-center gap-1.5 rounded-2xl px-4 py-3 text-[15px] uppercase text-ink/70 dark:text-white/70"
                 >
                   Résumé <ArrowUpRight size={18} weight="light" />
                 </a>

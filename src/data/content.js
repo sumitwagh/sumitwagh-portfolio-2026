@@ -46,6 +46,11 @@ export const journey = [
     company: 'OSP Labs',
     role: 'Senior UI Designer',
     period: '2021 — Present',
+    dateShort: "'21 — Present",
+    location: 'Remote',
+    current: true,
+    start: 2021,
+    end: null,
     href: 'https://osplabs.com',
     logo: 'OSP',
     logoSrc: ospLogo,
@@ -53,11 +58,20 @@ export const journey = [
     summary:
       'Leading design for AI-first healthcare products across Revenue Cycle Management, remote patient monitoring, and EHR workflows — turning dense clinical and billing processes into interfaces teams actually enjoy using.',
     tags: ['Healthcare SaaS', 'Design Systems', 'AI Products'],
+    achievements: [
+      'Lead designer on AI-first RCM, RPM, and EHR platforms used by billing teams and clinicians.',
+      'Built and maintained the product design system that keeps a growing suite consistent.',
+      'Partner closely with engineering to ship complex, high-stakes healthcare workflows.',
+    ],
   },
   {
     company: 'Chitranu',
     role: 'UI/UX Designer',
     period: '2018 — 2021',
+    dateShort: "'18 — '21",
+    location: 'Pune, India',
+    start: 2018,
+    end: 2021,
     href: 'https://chitranu.com',
     logo: 'C',
     logoSrc: chitranuLogo,
@@ -65,11 +79,20 @@ export const journey = [
     summary:
       'Shipped next-generation web and mobile apps for a roster of SaaS and consumer clients, owning flows end to end from research and wireframes to polished, developer-ready UI.',
     tags: ['Web & Mobile', 'Prototyping', 'Client Work'],
+    achievements: [
+      'Delivered web and mobile products for SaaS and consumer clients end to end.',
+      'Owned research, wireframes, and high-fidelity UI on tight timelines.',
+      'Grew from designer to a trusted lead on client-facing projects.',
+    ],
   },
   {
     company: 'Freelance — Upwork',
     role: 'UI/UX Designer',
     period: '2017 — 2018',
+    dateShort: "'17 — '18",
+    location: 'Remote',
+    start: 2017,
+    end: 2018,
     href: 'https://www.upwork.com/freelancers/~01e21e5b85315b31d6?viewMode=1',
     logo: 'up',
     logoSrc: upworkLogo,
@@ -77,6 +100,11 @@ export const journey = [
     summary:
       'Where it started — designing for startups and small businesses around the world, learning to translate real business goals into clean, usable interfaces on tight timelines.',
     tags: ['Startups', 'End-to-end UX'],
+    achievements: [
+      'Designed for startups and small businesses across the globe.',
+      'Turned real business goals into clean, usable interfaces.',
+      'Built the foundation of a product-focused design practice.',
+    ],
   },
 ]
 
@@ -139,19 +167,3 @@ export const uses = [
   },
 ]
 
-// Gallery of real UI shots, resolved from the work assets.
-const shotFiles = import.meta.glob('../assets/work/**/*.jpg', { eager: true, import: 'default' })
-const sh = (p) => shotFiles[`../assets/work/${p}`]
-
-export const shots = [
-  { title: 'Legalyze — case dashboard', tag: 'Legal Tech', image: sh('legalyze/home.jpg'), span: 'wide' },
-  { title: 'Recovery Companion', tag: 'Health App', image: sh('eating/screen-3.jpg'), span: 'tall' },
-  { title: 'MyUsage — home', tag: 'Fintech', image: sh('myusage/after-1.jpg'), span: 'normal' },
-  { title: 'Nerd News — interests', tag: 'Content', image: sh('nerdnews/screen-10.jpg'), span: 'normal' },
-  { title: 'Spine UI — colour', tag: 'Design System', image: sh('spine/colors.jpg'), span: 'wide' },
-  { title: 'Prime Care Kiosk', tag: 'Healthcare', image: sh('primecare/screen-2.jpg'), span: 'tall' },
-  { title: 'Exceleron — landing', tag: 'Web', image: sh('exceleron/screen-1.jpg'), span: 'normal' },
-  { title: 'Legalyze — templates', tag: 'Legal Tech', image: sh('legalyze/templates.jpg'), span: 'normal' },
-  { title: 'MyUsage — usage', tag: 'Fintech', image: sh('myusage/after-3.jpg'), span: 'normal' },
-  { title: 'Nerd News — reading', tag: 'Content', image: sh('nerdnews/screen-5.jpg'), span: 'normal' },
-]
