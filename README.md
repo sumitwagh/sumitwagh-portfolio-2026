@@ -171,3 +171,8 @@ Interface sound is **off by default** and toggled from the bottom bar on case-st
 
 ## v18 updates
 - About: the Story and Profile now sit inside the standard site container (82rem), aligned with the nav and every other section instead of breaking full-width. Heading spans the measure; below it a balanced photo (fixed ~340px column, sticky) sits beside the story, which is broken into four paragraphs with a lead emphasis for better rhythm, spacing, and use of white space. Consistent padding and alignment across breakpoints.
+
+## Image format: WebP
+All raster images the app references are now WebP. The two `import.meta.glob` patterns (`work/**/*.webp`, `shots/*.webp`), the `img('…')` lookups in `src/data/projects.js`, and the direct imports (portrait, workstation, book covers) were all updated from `.jpg` to `.webp`. Vite handles `.webp` natively — no config change needed.
+
+Note: `src/assets/img/work/*.jpg` and `src/assets/img/profile.jpg` are unused legacy files (nothing imports them) and were left untouched; they can be safely deleted.

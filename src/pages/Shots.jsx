@@ -2,7 +2,7 @@ import Reveal from '../components/Reveal'
 import Seo from '../components/Seo'
 
 // Every shot is pre-normalised to a uniform frame, so the rows stay even.
-const files = import.meta.glob('../assets/shots/*.jpg', { eager: true, import: 'default' })
+const files = import.meta.glob('../assets/shots/*.webp', { eager: true, import: 'default' })
 const shots = Object.entries(files)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, src]) => src)

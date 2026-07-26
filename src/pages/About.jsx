@@ -2,7 +2,7 @@ import { books } from '../data/content'
 import Reveal from '../components/Reveal'
 import Seo from '../components/Seo'
 import signature from '../assets/img/signature.svg'
-import portrait from '../assets/img/portrait.jpg'
+import portrait from '../assets/img/portrait.webp'
 import TravelGallery from '../components/TravelGallery'
 
 const sectionHeading = 'text-[28px] leading-tight sm:text-[32px] lg:text-[36px]'

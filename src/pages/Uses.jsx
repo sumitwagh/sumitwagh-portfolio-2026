@@ -2,7 +2,7 @@ import { siWebflow, siNotion, siSpotify } from 'simple-icons'
 import { uses } from '../data/content'
 import Reveal from '../components/Reveal'
 import Seo from '../components/Seo'
-import workstation from '../assets/img/workstation.jpg'
+import workstation from '../assets/img/workstation.webp'
 
 // Resolve device/tool assets from src/assets/uses/**
 const assets = import.meta.glob('../assets/uses/**/*.{png,svg}', { eager: true, import: 'default' })

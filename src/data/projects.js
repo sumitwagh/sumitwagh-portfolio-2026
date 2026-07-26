@@ -1,5 +1,5 @@
 // Work assets are resolved from src/assets/work/** via Vite glob (eager).
-const files = import.meta.glob('../assets/work/**/*.jpg', { eager: true, import: 'default' })
+const files = import.meta.glob('../assets/work/**/*.webp', { eager: true, import: 'default' })
 const img = (p) => files[`../assets/work/${p}`]
 
 const rawProjects = [
@@ -12,7 +12,7 @@ const rawProjects = [
     category: 'Legal Tech · SaaS',
     year: '2024',
     layout: 'wide',
-    cover: img('legalyze/cover.jpg'),
+    cover: img('legalyze/cover.webp'),
     meta: [
       { label: 'Role', value: 'Product & Marketing Designer' },
       { label: 'Scope', value: 'Web App + Website' },
@@ -52,12 +52,12 @@ const rawProjects = [
     visual:
       'The identity leans into a deep, confident palette with generous whitespace and precise typography — the visual language of trust. Interface states are deliberate and legible, with hover and empty states designed so the product feels considered at every touch.',
     gallery: [
-      { img: img('legalyze/design-1.jpg') },
-      { img: img('legalyze/design-2.jpg') },
-      { img: img('legalyze/design-3.jpg') },
-      { img: img('legalyze/design-4.jpg') },
-      { img: img('legalyze/design-5.jpg') },
-      { img: img('legalyze/design-6.jpg') },
+      { img: img('legalyze/design-1.webp') },
+      { img: img('legalyze/design-2.webp') },
+      { img: img('legalyze/design-3.webp') },
+      { img: img('legalyze/design-4.webp') },
+      { img: img('legalyze/design-5.webp') },
+      { img: img('legalyze/design-6.webp') },
     ],
     outcome: [
       'A cohesive experience where the marketing site and product speak the same visual language.',
@@ -78,7 +78,7 @@ const rawProjects = [
     category: 'Health · Mobile App',
     year: '2024',
     layout: 'wide',
-    cover: img('eating/cover.jpg'),
+    cover: img('eating/cover.webp'),
     links: [],
     prototype: 'https://www.figma.com/proto/NdJTIGVKalPqtSHiLMTY64/Disorder-Questionnaire-Mobile-App?node-id=203-2946&p=f&viewport=5766%2C1063%2C0.24&t=9MNZwZgK6LPab6JN-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=203%3A2946&page-id=1414%3A11867',
     meta: [
@@ -118,10 +118,10 @@ const rawProjects = [
     visual:
       'The palette is soft and warm — creams, gentle peaches, and calming neutrals — paired with rounded shapes and friendly illustration. The typography is generous and highly readable. Every choice is made to lower the emotional temperature and help people feel held.',
     gallery: [
-      { img: img('eating/design-1.jpg') },
-      { img: img('eating/design-2.jpg') },
-      { img: img('eating/design-3.jpg') },
-      { img: img('eating/design-4.jpg') },
+      { img: img('eating/design-1.webp') },
+      { img: img('eating/design-2.webp') },
+      { img: img('eating/design-3.webp') },
+      { img: img('eating/design-4.webp') },
     ],
     outcome: [
       'A complete, cohesive mobile experience designed around safety and encouragement.',
@@ -143,7 +143,7 @@ const rawProjects = [
     category: 'Web · Redesign',
     year: '2024',
     layout: 'wide',
-    cover: img('exceleron/cover.jpg'),
+    cover: img('exceleron/cover.webp'),
     links: [{ label: 'exceleron.com', href: 'https://www.exceleron.com/' }],
     prototype: 'https://www.figma.com/proto/51FnZw5PcvT480WqQEzvcn/https---exceleron.com-?node-id=2183-214&viewport=2008%2C945%2C0.17&t=TZ9oT0ZC8wIn0VJc-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2183%3A214&show-proto-sidebar=1&page-id=0%3A1',
     meta: [
@@ -177,10 +177,10 @@ const rawProjects = [
     visual:
       'A cleaner grid, a modern typographic scale, and disciplined spacing replace the density of the original. Colour is used to guide attention rather than decorate, giving the page a calm, premium feel.',
     gallery: [
-      { img: img('exceleron/screen-1.jpg'), caption: 'The redesigned landing experience — modern, benefit-led, and easy to scan.' },
-      { img: img('exceleron/screen-2.jpg') },
-      { img: img('exceleron/screen-3.jpg') },
-      { img: img('exceleron/screen-4.jpg') },
+      { img: img('exceleron/screen-1.webp'), caption: 'The redesigned landing experience — modern, benefit-led, and easy to scan.' },
+      { img: img('exceleron/screen-2.webp') },
+      { img: img('exceleron/screen-3.webp') },
+      { img: img('exceleron/screen-4.webp') },
     ],
     outcome: [
       'A modern landing experience that communicates value at a glance.',
@@ -201,7 +201,7 @@ const rawProjects = [
     category: 'Mobile · Redesign',
     year: '2024',
     layout: 'wide',
-    cover: img('myusage/cover.jpg'),
+    cover: img('myusage/cover.webp'),
     links: [{ label: 'exceleron.com/products', href: 'https://www.exceleron.com/products/' }],
     prototype: 'https://www.figma.com/proto/c86sC8s49eumgXmzNNWD2Z/Myusages?node-id=686-4239&viewport=-6144%2C-1665%2C0.52&t=62l5bn1NPGBWbMJq-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=686%3A4505&page-id=229%3A1266&show-proto-sidebar=1',
     meta: [
@@ -235,12 +235,12 @@ const rawProjects = [
     visual:
       'The redesign trades the old flat, low-contrast screens for a bright, modern system with clear typographic hierarchy and purposeful colour — so the critical numbers read instantly, even at a glance.',
     beforeAfter: [
-      { combined: img('myusage/ba-1.jpg') },
-      { combined: img('myusage/ba-2.jpg') },
+      { combined: img('myusage/ba-1.webp') },
+      { combined: img('myusage/ba-2.webp') },
     ],
     gallery: [
-      { img: img('myusage/design-1.jpg') },
-      { img: img('myusage/design-2.jpg') },
+      { img: img('myusage/design-1.webp') },
+      { img: img('myusage/design-2.webp') },
     ],
     outcome: [
       'A dramatically clearer home screen that answers “Am I OK?” instantly.',
@@ -261,7 +261,7 @@ const rawProjects = [
     category: 'Design System',
     year: '2024',
     layout: 'wide',
-    cover: img('spine/cover.jpg'),
+    cover: img('spine/cover.webp'),
     links: [{ label: 'spineui.framer.website', href: 'https://spineui.framer.website/' }],
     meta: [
       { label: 'Role', value: 'Design System Designer' },
@@ -294,12 +294,12 @@ const rawProjects = [
     visual:
       'Spine UI’s own presentation is the proof of concept: a precise, restrained aesthetic with a carefully tuned palette, clear type, and a consistent radius language. It looks like a system because it is one.',
     gallery: [
-      { img: img('spine/colors.jpg'), caption: 'A tokenised colour palette that scales across products and themes.' },
-      { img: img('spine/variables.jpg'), caption: 'Semantic colour variables — define once, reuse everywhere.' },
-      { img: img('spine/typography.jpg'), caption: 'A structured type scale for consistent hierarchy.' },
-      { img: img('spine/grid.jpg'), caption: 'A grid system that keeps every layout on rhythm.' },
-      { img: img('spine/radius.jpg'), caption: 'A unified corner-radius language for a cohesive feel.' },
-      { img: img('spine/alerts.jpg'), caption: 'Production-ready components — alerts, notifications, and toasts.' },
+      { img: img('spine/colors.webp'), caption: 'A tokenised colour palette that scales across products and themes.' },
+      { img: img('spine/variables.webp'), caption: 'Semantic colour variables — define once, reuse everywhere.' },
+      { img: img('spine/typography.webp'), caption: 'A structured type scale for consistent hierarchy.' },
+      { img: img('spine/grid.webp'), caption: 'A grid system that keeps every layout on rhythm.' },
+      { img: img('spine/radius.webp'), caption: 'A unified corner-radius language for a cohesive feel.' },
+      { img: img('spine/alerts.webp'), caption: 'Production-ready components — alerts, notifications, and toasts.' },
     ],
     outcome: [
       'A consistent foundation that eliminates re-solving the basics.',
@@ -320,7 +320,7 @@ const rawProjects = [
     category: 'Mobile · Content',
     year: '2023',
     layout: 'wide',
-    cover: img('nerdnews/cover.jpg'),
+    cover: img('nerdnews/cover.webp'),
     links: [],
     prototype: 'https://www.figma.com/proto/vMCtm0Yymg6uFEVajzyViM/Nerd-News-Chitranu?node-id=2342-1922&viewport=790%2C897%2C0.14&t=Ery5ZwUbNrPP88dW-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2342%3A1922&page-id=2221%3A3311',
     meta: [
@@ -354,9 +354,9 @@ const rawProjects = [
     visual:
       'A bright, friendly aesthetic with clear typography and playful accents gives Nerd News personality without sacrificing readability. The interest-picker turns setup into a genuinely enjoyable moment.',
     gallery: [
-      { img: img('nerdnews/design-1.jpg') },
-      { img: img('nerdnews/design-2.jpg') },
-      { img: img('nerdnews/design-3.jpg') },
+      { img: img('nerdnews/design-1.webp') },
+      { img: img('nerdnews/design-2.webp') },
+      { img: img('nerdnews/design-3.webp') },
     ],
     outcome: [
       'An onboarding that captures interests without feeling like work.',
@@ -377,7 +377,7 @@ const rawProjects = [
     category: 'Healthcare · Kiosk',
     year: '2023',
     layout: 'tablet',
-    cover: img('primecare/cover.jpg'),
+    cover: img('primecare/cover.webp'),
     links: [],
     prototype: 'https://www.figma.com/proto/81D9BFgtHlukGz0pxU8UhC/PrimeCare?node-id=2107-3036&viewport=-54%2C757%2C0.18&t=HpGvroFIpow5qTSG-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2107%3A3036&page-id=2107%3A1355',
     meta: [
@@ -416,12 +416,12 @@ const rawProjects = [
     visual:
       'A clean, high-contrast interface with oversized touch targets and generous spacing puts usability first. The tone is calm and clinical-but-warm — appropriate for a healthcare setting where trust and clarity matter most.',
     gallery: [
-      { img: img('primecare/screen-1.jpg') },
-      { img: img('primecare/screen-2.jpg') },
-      { img: img('primecare/screen-3.jpg') },
-      { img: img('primecare/screen-4.jpg') },
-      { img: img('primecare/screen-5.jpg') },
-      { img: img('primecare/screen-6.jpg') },
+      { img: img('primecare/screen-1.webp') },
+      { img: img('primecare/screen-2.webp') },
+      { img: img('primecare/screen-3.webp') },
+      { img: img('primecare/screen-4.webp') },
+      { img: img('primecare/screen-5.webp') },
+      { img: img('primecare/screen-6.webp') },
     ],
     outcome: [
       'An intake experience usable by patients of every age and ability.',

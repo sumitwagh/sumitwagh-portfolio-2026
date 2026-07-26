@@ -39,10 +39,10 @@ export default function Experience() {
               >
                 <div className="flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between md:gap-10">
                   <div className="flex items-baseline gap-4 md:gap-6">
-                    <span className="text-[13px] tabular-nums text-ink/30 dark:text-white/25">0{i + 1}</span>
+                    {/* <span className="text-[13px] tabular-nums text-ink/30 dark:text-white/25">0{i + 1}</span> */}
                     <div>
                       <h3 className="text-[clamp(1.5rem,3.4vw,2.25rem)] leading-tight">{j.role}</h3>
-                      <p className="mt-2 text-[20px] text-ink/50 dark:text-white/45">
+                      <p className="mt-2 text-[20px] text-ink/70 dark:text-white/45">
                         {j.company}
                         <span className="mx-2 text-ink/25 dark:text-white/20">·</span>
                         {j.location}

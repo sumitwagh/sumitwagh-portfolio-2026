@@ -42,7 +42,7 @@ export default function Navbar() {
           <Link to="/" className="group flex items-center gap-3" aria-label="Sumit Wagh — Home">
             <img
               src={avatar}
-              alt="Sumit Wagh"
+              alt="My Profile Picture - Sumit Wagh"
               width="40"
               height="40"
               className="h-10 w-10 rounded-full object-cover transition-transform duration-500 ease-smooth group-hover:rotate-6 group-hover:scale-105"
