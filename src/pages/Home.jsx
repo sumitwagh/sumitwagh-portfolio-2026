@@ -138,7 +138,7 @@ export default function Home() {
           <div className="lg:px-8">
             <Stat
               number="40+"
-              label="Client Designed"
+              label="Projects Delivered"
             />
           </div>
 
