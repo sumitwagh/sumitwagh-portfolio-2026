@@ -32,11 +32,11 @@ export default function Stat({ number, label }) {
       ref={ref}
       className="group flex flex-col transition-all duration-300 hover:-translate-y-1"
     >
-      <h3 className="text-[clamp(1.75rem,3vw,2.75rem)] font-medium leading-none tracking-[-0.02em]  transition-all duration-300 group-hover:scale-[1.03] group-hover:text-ink dark:group-hover:text-white">
+      <h3 className="text-[clamp(1.75rem,3vw,2.5rem)] font-medium leading-none tracking-[-0.02em]  transition-all duration-300 group-hover:scale-[1.03] group-hover:text-ink dark:group-hover:text-white">
   {isNumber ? `${count}+` : number}
 </h3>
 
-      <p className="mt-3 max-w-[180px] text-[16px] leading-6 text-ink/55 transition-colors duration-300 group-hover:text-ink/80 dark:text-white/50 dark:group-hover:text-white/80">
+      <p className="mt-3 max-w-[180px] text-[18px] leading-6 tracking-[0.02em] text-ink/70 transition-colors duration-300 group-hover:text-ink/80 dark:text-white/50 dark:group-hover:text-white/80">
         {label}
       </p>
     </div>

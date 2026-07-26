@@ -120,7 +120,7 @@ export default function RightNow() {
     <section className="container-site pt-28 md:pt-36">
       <div className="grid items-center gap-12 md:grid-cols-[1fr_0.9fr] md:gap-16">
         <Reveal>
-          <p className="text-[16px] uppercase text-ink/60 dark:text-white/40" style={{ letterSpacing: '0.14em' }}>
+          <p className="text-[16px] uppercase text-ink/70 dark:text-white/40" style={{ letterSpacing: '0.10em' }}>
             Right now
           </p>
           <h2 className="mt-4 text-[clamp(1.9rem,4.2vw,3rem)] leading-[1.05]">

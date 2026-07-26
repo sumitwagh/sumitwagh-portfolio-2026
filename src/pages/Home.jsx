@@ -75,7 +75,7 @@ export default function Home() {
             </h1>
 
             <Reveal delay={0.4}>
-              <p className="mt-6 text-[18px] leading-relaxed text-ink/55 dark:text-white/50 md:text-[22px]">
+              <p className="mt-6 text-[18px] leading-relaxed text-ink/70 dark:text-white/50 md:text-[22px]">
                 Product Designer with 7+ years of experience crafting enterprise
                 healthcare, AI, and SaaS products. I simplify complex workflows
                 into intuitive experiences that help teams work faster and make

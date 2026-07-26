@@ -7,4 +7,4 @@ export const contact = {
 }
 
 // Point this at your hosted CV/résumé (PDF or Drive link).
-export const RESUME_URL = '/resume.pdf'
+export const RESUME_URL = 'https://drive.google.com/file/d/1hHKUiwkQZgyIr2nrD0K7Qd-J-P0kUiTd/view?usp=sharing'

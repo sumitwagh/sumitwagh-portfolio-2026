@@ -15,7 +15,7 @@ export default function Experience() {
   return (
     <section className="container-site pt-28 md:pt-36">
       <Reveal>
-        <p className="text-[13px] uppercase text-ink/45 dark:text-white/40" style={{ letterSpacing: '0.14em' }}>
+        <p className="text-[16px] uppercase text-ink/70 dark:text-white/40" style={{ letterSpacing: '0.10em' }}>
           Experience
         </p>
         <h2 className="mt-4 max-w-2xl text-[clamp(1.9rem,4.2vw,3rem)] leading-[1.05]">
