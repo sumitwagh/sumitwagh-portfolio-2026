@@ -6,5 +6,7 @@ export const contact = {
   linkedin: 'https://www.linkedin.com/in/sumitwagh/',
 }
 
-// Point this at your hosted CV/résumé (PDF or Drive link).
-export const RESUME_URL = 'https://drive.google.com/file/d/1hHKUiwkQZgyIr2nrD0K7Qd-J-P0kUiTd/view?usp=sharing'
+// Self-hosted résumé — lives in /public and is served from your own domain
+// (sumitwagh.com/sumit-wagh-resume.pdf). Replace the placeholder PDF in
+// /public with your real, up-to-date résumé export.
+export const RESUME_URL = '/sumit-wagh-resume.pdf'

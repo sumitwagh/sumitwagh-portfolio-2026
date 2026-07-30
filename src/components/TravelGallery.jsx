@@ -94,24 +94,24 @@ export default function TravelGallery() {
   const doubled = [...cards, ...cards]
 
   return (
-    <section className="relative left-1/2 right-1/2 -mx-[50vw] mt-24 w-screen md:mt-32">
+    <section className="relative left-1/2 right-1/2 -mx-[50vw] mt-16 w-screen md:mt-20">
       <div className="container-site">
         <Reveal>
           <p className="eyebrow">Off screen</p>
-          <h2 className="mt-3 max-w-4xl text-[clamp(1.75rem,3.4vw,2.5rem)] leading-[1.12]">
+          <h2 className="mt-2 max-w-3xl text-[clamp(1.4rem,2.6vw,1.9rem)] leading-[1.15] text-ink/80 dark:text-white/80">
             Curious about cities, street food, and the stories behind old doors.
           </h2>
         </Reveal>
       </div>
 
       {/* Full-bleed continuous marquee — no edge fade */}
-      <div className="marquee-plain mt-12 w-full md:mt-14">
+      <div className="marquee-plain mt-8 w-full md:mt-10">
         <div className="marquee-track gap-6 py-4 md:gap-12" style={{ '--dur': '55s' }}>
           {doubled.map((c, i) => (
             <figure
               key={c.place + i}
               aria-hidden={i >= cards.length}
-              className="polaroid group w-[240px] shrink-0 rounded-[14px] bg-white p-3 pb-4 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)] dark:bg-neutral-100 sm:w-[280px]"
+              className="polaroid group w-[180px] shrink-0 rounded-[14px] bg-white p-3 pb-4 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)] dark:bg-neutral-100 sm:w-[210px]"
               style={{ '--r': c.rot }}
             >
               <div className="aspect-[4/3] w-full overflow-hidden rounded-[6px]">

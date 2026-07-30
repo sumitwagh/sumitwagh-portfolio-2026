@@ -19,7 +19,7 @@ export default function ProjectCard({ project, delay = 0 }) {
           <h3 className="text-[22px] leading-snug transition-colors duration-300 group-hover:text-ink/60 dark:group-hover:text-white/70 md:text-2xl">
             {project.title}
           </h3>
-          <p className="mt-1 text-[22px] leading-snug text-ink/45 dark:text-white/45 md:overflow-hidden md:text-ellipsis md:whitespace-nowrap md:text-2xl">
+          <p className="mt-1 text-[22px] leading-snug text-ink/60 dark:text-white/55 md:overflow-hidden md:text-ellipsis md:whitespace-nowrap md:text-2xl">
             {project.subtitle}
           </p>
         </div>

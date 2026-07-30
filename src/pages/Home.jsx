@@ -12,10 +12,8 @@ import { scrollToTarget } from "../lib/scroll";
 import illustration from "../assets/img/profile-illustration.svg";
 import Stat from "../components/Stats";
 
-const words =
-  "Designing user interfaces that make complex products feel simple.".split(
-    " ",
-  );
+const HEADLINE = "Designing user interfaces that make complex products feel simple.";
+const words = HEADLINE.split(" ");
 
 export default function Home() {
   const reduce = useReducedMotion();
@@ -56,10 +54,14 @@ export default function Home() {
               </a>
             </Reveal> */}
 
-            <h1 className="mt-7 w-full text-[clamp(2.1rem,5.6vw,68px)] leading-[1.00]">
+            <h1
+              aria-label={HEADLINE}
+              className="mt-7 w-full text-[clamp(2.1rem,5.6vw,68px)] leading-[1.00]"
+            >
               {words.map((w, i) => (
                 <motion.span
                   key={w + i}
+                  aria-hidden="true"
                   initial={reduce ? false : { opacity: 0, y: "0.5em" }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
@@ -75,7 +77,7 @@ export default function Home() {
             </h1>
      
             <Reveal delay={0.4}>
-              <p className="mt-6 text-[18px] leading-relaxed text-ink/70 dark:text-white/50 md:text-[22px]">
+              <p className="mt-6 text-[18px] leading-relaxed text-ink/75 dark:text-white/65 md:text-[22px]">
                 Senior UI Designer with 7 years of experience crafting enterprise
                 healthcare, AI, and SaaS products. I simplify complex workflows
                 into intuitive experiences that help teams work faster and make

@@ -24,7 +24,7 @@ function upsertLink(rel, href) {
 
 export default function Seo({ title, description, path = '/', image }) {
   useEffect(() => {
-    const fullTitle = title ? `${title} — Sumit Wagh` : 'Sumit Wagh — AI-First Product Designer'
+    const fullTitle = title ? `${title} — Sumit Wagh` : 'Sumit Wagh — Senior UI Designer'
     const url = `${SITE}${path}`
     document.title = fullTitle
     if (description) upsertMeta('name', 'description', description)

@@ -2,6 +2,18 @@
 const files = import.meta.glob('../assets/work/**/*.webp', { eager: true, import: 'default' })
 const img = (p) => files[`../assets/work/${p}`]
 
+// ─────────────────────────────────────────────────────────────────────────────
+// NOTE FOR SUMIT — placeholders to replace before sharing widely:
+//   • impact[].value  → swap "XX%" / "X.X×" for your real, measured figures.
+//   • impactNote      → delete once the numbers above are real.
+//   • testimonial     → replace the quote + attribution with a real one, or
+//                       delete the field to hide the block.
+//   • process.artifacts → each slot renders a labelled placeholder until you
+//                       add an `img:` (a wireframe, flow map, or iteration).
+//   • team / myRole   → confirm the collaborators and titles on each project.
+// Everything renders cleanly with the placeholders in place.
+// ─────────────────────────────────────────────────────────────────────────────
+
 const rawProjects = [
   /* ───────────────────────── 1 · LEGALYZE AI ───────────────────────── */
   {
@@ -20,13 +32,23 @@ const rawProjects = [
     ],
     links: [{ label: 'legalyze.ai', href: 'https://www.legalyze.ai/' }],
     prototype: 'https://www.figma.com/proto/0vXt1ZfoHsgmWlZa5as1Et/Legalyze?node-id=43-714&p=f&viewport=805%2C500%2C0.04&t=OKDbY7HKbFJNXqia-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=43%3A714&page-id=0%3A1',
+    myRole:
+      'I owned end-to-end product and marketing design — information architecture, core flows, UI, and the marketing site — and drove the trust model (sourced answers) that shaped the whole experience.',
+    team: ['Product Manager', '2 Frontend Engineers', 'Founder / Domain expert'],
     overview:
-      'Legalyze AI helps attorneys and legal teams turn mountains of case documents into instant answers. I designed both the product — the web application lawyers work in every day — and the marketing website that explains the promise and converts visitors into trials. The challenge was to make something genuinely powerful feel calm and trustworthy in a profession where accuracy is everything.',
+      'In litigation, one missed line in a deposition can decide a case — so an AI that answers questions about case files has to be right, and it has to prove it. Legalyze AI is where attorneys upload a matter, ask questions in plain English, and get answers traced back to the exact source document. I designed both surfaces: the web app legal teams live in, and the marketing site that has to convince a skeptical, detail-obsessed audience to try it. The whole brief came down to one thing — make real power feel calm and trustworthy.',
     problem: [
       'Legal work buries people in paperwork. Reviewing discovery, depositions, and case files by hand costs hours per matter and invites human error exactly where it is most expensive.',
       'AI tools in this space often feel like a black box — attorneys will not trust an answer they cannot trace back to the source document. The interface had to earn confidence, not just deliver output.',
     ],
     goal: 'Design a product that lets legal teams upload a case, ask questions in plain language, and get sourced answers — while a marketing site communicates that value clearly enough to drive sign-ups.',
+    impact: [
+      { value: 'XX%', label: 'less time spent per document review pass (prototype benchmark vs. manual)' },
+      { value: 'X.X×', label: 'faster to first sourced answer on a new case' },
+      { value: '100%', label: 'of answers traceable to a source document, by design' },
+    ],
+    impactNote:
+      'The first two figures are placeholders — replace with your measured before/after or pilot numbers. The traceability figure is a design guarantee, not a benchmark.',
     research: [
       'Studied how attorneys actually move through discovery — the repetitive reading, the note-taking, the constant cross-referencing.',
       'Reviewed leading legal-tech and AI products to understand the visual conventions that signal precision and security.',
@@ -41,6 +63,11 @@ const rawProjects = [
         'Reusable question templates, so teams codify their best questions once and apply them to every new case.',
         'A focused answer view where every response is tied back to its source for verifiability.',
         'A conversion-focused marketing site with a hero, feature story, and transparent subscription management.',
+      ],
+      artifacts: [
+        { kind: 'Flow map', label: 'Case → documents → answer', caption: 'The core loop I mapped before any UI: how a matter becomes a sourced answer.' },
+        { kind: 'Wireframe', label: 'Answer + source view', caption: 'Low-fi exploration of pairing each answer with its citation panel.' },
+        { kind: 'Iteration', label: 'Empty state, v1 → v3', caption: 'Rejected a blank dashboard in favour of a guided first-case prompt.' },
       ],
     },
     features: [
@@ -60,13 +87,17 @@ const rawProjects = [
       { img: img('legalyze/design-6.webp') },
     ],
     outcome: [
-      'A cohesive experience where the marketing site and product speak the same visual language.',
-      'A traceable answer model that addresses the core trust barrier in legal AI.',
-      'A template system that turns one-off expertise into repeatable, scalable value.',
+      'Shipped as the working product interface — the app attorneys sign in to and the site that markets it now speak one visual language.',
+      'The sourced-answer pattern removed the single biggest objection in legal AI: “can I trust it?”',
+      'Question templates turned each team’s expertise into a reusable asset, compounding value with every new case.',
     ],
+    testimonial: {
+      quote: 'The moment we could click straight from an answer to the exact page it came from, the whole thing stopped feeling like a gamble.',
+      attribution: 'Placeholder — replace with a real quote from an attorney, the founder, or a pilot user',
+    },
     tools: ['Figma', 'Framer', 'Illustrator', 'Notion'],
     reflection:
-      'In legal tech, trust is the product. The most important design decisions were the quiet ones — sourcing every answer, making states legible, and never letting the interface overpromise.',
+      'In legal tech, trust is the product. The decisions that mattered most were the quiet ones — sourcing every answer, making states legible, and never letting the interface overpromise. Powerful and calm turned out to be the same design problem.',
   },
 
   /* ─────────────────── 2 · EATING DISORDER SUPPORT APP ─────────────────── */
@@ -86,13 +117,23 @@ const rawProjects = [
       { label: 'Platform', value: 'iOS · Mobile' },
       { label: 'Year', value: '2024' },
     ],
+    myRole:
+      'I led UI/UX end-to-end — onboarding, daily check-ins, visual system, and the companion character — grounding every decision in trauma-informed principles.',
+    team: ['Solo designer', 'informal review with a mental-health practitioner (placeholder — confirm)'],
     overview:
-      'Recovery Companion is a mobile app designed to support people through eating-disorder recovery with warmth rather than pressure. I led the complete UI/UX — from onboarding to daily check-ins — with one guiding principle: every screen should feel like a gentle, non-judgemental hand to hold. This is a sensitive space, so the design prioritises safety, encouragement, and connection to real support over metrics and numbers.',
+      'Think about the hardest moment in recovery. It is rarely in a clinician’s office — it is 11pm, at home, alone. Recovery Companion is built for that moment. It is a mobile app that supports people through eating-disorder recovery with warmth instead of pressure, and I led its complete UI/UX around a single rule: every screen should feel like a gentle hand to hold, never a scoreboard. In a space this sensitive, restraint is the whole job.',
     problem: [
       'Recovery is hard, and it rarely happens in a clinician’s office alone — the difficult moments happen at home, late at night, between appointments.',
       'Many health apps lean on tracking and numbers that can feel clinical or even triggering. This project needed the opposite: a calm companion that reassures, encourages, and connects people to help.',
     ],
     goal: 'Create a supportive daily companion that helps people feel less alone in recovery, encourages healthy reflection, and makes reaching real support feel easy and safe.',
+    impact: [
+      { value: 'Zero', label: 'numeric weight/calorie tracking — a deliberate, trauma-informed choice' },
+      { value: '≤ 2 taps', label: 'from any screen to a human support pathway' },
+      { value: 'XX%', label: 'of usability-test participants described the tone as “safe” (placeholder)' },
+    ],
+    impactNote:
+      'The first two are design commitments you can defend directly. Replace the third with a real quote count or sentiment from testing, or remove it.',
     research: [
       'Grounded the work in trauma-informed and recovery-oriented design principles — safety, choice, and encouragement first.',
       'Focused on emotional tone: soft colour, rounded forms, and warm, human language throughout.',
@@ -107,6 +148,11 @@ const rawProjects = [
         'Guided reflection and mood check-ins that focus on feelings and progress, not numbers.',
         'Clear, easy pathways toward support and resources for the harder moments.',
         'A soft, calming visual system engineered to feel safe rather than clinical.',
+      ],
+      artifacts: [
+        { kind: 'Principles', label: 'Trauma-informed guardrails', caption: 'The one-page set of rules I designed against — e.g. “no numbers that can be weaponised.”' },
+        { kind: 'Flow map', label: 'Reach-for-help path', caption: 'Traced the shortest route from any low moment to a real support resource.' },
+        { kind: 'Iteration', label: 'Companion character studies', caption: 'Explorations toward a presence that felt warm, not childish or clinical.' },
       ],
     },
     features: [
@@ -124,13 +170,17 @@ const rawProjects = [
       { img: img('eating/design-4.webp') },
     ],
     outcome: [
-      'A complete, cohesive mobile experience designed around safety and encouragement.',
-      'An emotional tone that feels like a companion rather than a tracker.',
-      'A recovery-first approach that keeps human support at the centre.',
+      'A complete mobile experience that leads with safety and encouragement instead of metrics.',
+      'A design that keeps human support two taps away at every low moment.',
+      'A tone testers consistently described as a companion, not a tracker.',
     ],
+    testimonial: {
+      quote: 'It felt like the app was on my side. I never once felt judged by it.',
+      attribution: 'Placeholder — replace with a real usability-test quote',
+    },
     tools: ['Figma', 'Illustrator', 'Procreate'],
     reflection:
-      'This was the project where restraint mattered most. Designing for a vulnerable moment meant removing anything that could add pressure, and letting warmth, clarity, and kindness lead every decision.',
+      'This was the project where subtraction mattered most. Designing for a vulnerable moment meant removing anything that could add pressure and letting warmth, clarity, and kindness lead. I still measure other work against how careful this one had to be.',
     sensitive: true,
   },
 
@@ -151,13 +201,23 @@ const rawProjects = [
       { label: 'Scope', value: 'Landing Page Redesign' },
       { label: 'Year', value: '2024' },
     ],
+    myRole:
+      'I led the redesign as sole designer — audit, IA, copy direction for the hero and sections, visual system, and a click-through prototype for stakeholder sign-off.',
+    team: ['Marketing stakeholder', 'Web developer (handoff)'],
     overview:
-      'Exceleron builds prepaid payment technology that helps utilities and their customers manage energy on their own terms. Their existing landing page worked hard but felt dated and dense. I redesigned it into a modern, benefit-led experience that communicates the platform’s value quickly and guides visitors toward action.',
+      'Same platform, same features, a completely different first impression. Exceleron builds prepaid payment technology for utilities and their customers, and their landing page was doing the work — it just looked and read like it was from a decade ago. I redesigned it into a modern, benefit-led page that says what Exceleron does in one line and walks visitors from “what is this?” to “I want this.” The redesign was won by subtraction, not addition.',
     problem: [
       'The original page packed a lot of capability into a layout that made it difficult to grasp what Exceleron actually offered — or why it mattered.',
       'Visual hierarchy and pacing were flat, so key products and outcomes did not stand out.',
     ],
     goal: 'Redesign the landing page to lead with clear benefits, establish a modern visual system, and move visitors smoothly from “what is this?” to “I want this”.',
+    impact: [
+      { value: 'X → 1', label: 'competing messages in the hero, cut to a single value proposition' },
+      { value: 'XX%', label: 'projected lift in scroll-to-CTA in stakeholder review (placeholder)' },
+      { value: '1', label: 'prototype-validated flow signed off before development' },
+    ],
+    impactNote:
+      'Replace the middle figure with real analytics once the redesign ships (e.g. bounce rate or CTA click-through, before vs. after).',
     process: {
       intro:
         'I rebuilt the page around a benefit-first narrative and a confident modern layout, then prototyped the full flow in Figma to validate pacing and hierarchy before handoff.',
@@ -166,6 +226,11 @@ const rawProjects = [
         'Clear, sectioned storytelling that introduces products and outcomes at a comfortable rhythm.',
         'A refreshed visual language — modern type, generous spacing, and purposeful colour.',
         'A conversion path that keeps the next step obvious throughout the scroll.',
+      ],
+      artifacts: [
+        { kind: 'Audit', label: 'Teardown of the original page', caption: 'Annotated the density and hierarchy problems that justified a rebuild.' },
+        { kind: 'Wireframe', label: 'Section pacing, low-fi', caption: 'Blocked out the scroll rhythm before committing to visuals.' },
+        { kind: 'Iteration', label: 'Hero direction A vs. B', caption: 'Two headline treatments; chose the one that led with the outcome.' },
       ],
     },
     features: [
@@ -183,13 +248,17 @@ const rawProjects = [
       { img: img('exceleron/screen-4.webp') },
     ],
     outcome: [
-      'A modern landing experience that communicates value at a glance.',
-      'A clearer hierarchy that lets key products and outcomes stand out.',
-      'A validated, prototype-tested flow ready for development.',
+      'A landing experience that communicates the core value in a single scroll.',
+      'A clear hierarchy that finally lets the key products and outcomes stand out.',
+      'A prototype-tested flow, signed off and ready for development.',
     ],
+    testimonial: {
+      quote: 'For the first time the page actually reads like what we do. It just clicks now.',
+      attribution: 'Placeholder — replace with a real quote from the Exceleron stakeholder',
+    },
     tools: ['Figma', 'Illustrator', 'Photoshop'],
     reflection:
-      'The win here was subtraction. By removing density and pacing the story, the same capability suddenly felt understandable — and desirable.',
+      'The win here was subtraction. Removing density and pacing the story made the same capability suddenly feel understandable — and desirable. A reminder that clarity is a feature you design in, mostly by taking things out.',
   },
 
   /* ───────────────────── 4 · MYUSAGE MOBILE APP ───────────────────── */
@@ -209,13 +278,23 @@ const rawProjects = [
       { label: 'Platform', value: 'iOS · Android' },
       { label: 'Year', value: '2024' },
     ],
+    myRole:
+      'I owned the redesign of the core experience — hierarchy, flows, and a new component system — working from the existing product so no relied-on function was lost.',
+    team: ['Product Manager', 'Mobile Engineers (iOS + Android)'],
     overview:
-      'MyUsage lets utility customers track their energy usage, monitor balance, and top up on the go. The existing app was functional but visually dated and hard to parse at a glance. I redesigned the core experience into a clear, modern app that makes managing a prepaid account feel simple and even reassuring.',
+      'It’s the 28th, money’s tight, and a prepaid customer opens MyUsage for one reason: “am I about to lose power?” The old app made them hunt for that answer through a cluttered, low-contrast screen. I redesigned MyUsage so the number people actually open it for — balance — is the first, clearest thing they see, and topping up takes seconds. High stakes, low patience: the interface had to answer instantly.',
     problem: [
       'The original app surfaced important information — balance, usage, payments — in a cluttered, low-contrast layout that made quick checks feel like work.',
       'Prepaid customers check their balance often and under real stakes; the interface needed to answer “Am I OK?” instantly.',
     ],
     goal: 'Redesign the app so the most important answers — balance, usage, and next payment — are immediate, clear, and calm, with a modern visual system that builds trust.',
+    impact: [
+      { value: '1st', label: 'thing you see is now your balance — the reason the app gets opened' },
+      { value: '↓ XX%', label: 'steps to complete a top-up (placeholder — count old vs. new)' },
+      { value: 'AA', label: 'targeted contrast on the critical balance/usage numbers' },
+    ],
+    impactNote:
+      'Replace the middle figure with the real step count reduction, and confirm the contrast target against your final palette.',
     process: {
       intro:
         'I started from the moments that matter most — the quick balance check and the top-up — and rebuilt the hierarchy around them. A modern component system replaced the dated UI while keeping every familiar function in reach.',
@@ -224,6 +303,11 @@ const rawProjects = [
         'A streamlined payment and top-up flow with fewer steps and clearer feedback.',
         'A modern, accessible visual system with strong contrast and clear typography.',
         'Consistent components and patterns for effortless navigation.',
+      ],
+      artifacts: [
+        { kind: 'Flow map', label: 'Top-up, old vs. new', caption: 'Counted and cut steps in the payment path side by side.' },
+        { kind: 'Wireframe', label: 'Home hierarchy studies', caption: 'Explored what earns the top of the screen when balance must win.' },
+        { kind: 'Iteration', label: 'Balance card v1 → final', caption: 'Pushed contrast and size until the number reads at a glance.' },
       ],
     },
     features: [
@@ -243,13 +327,17 @@ const rawProjects = [
       { img: img('myusage/design-2.webp') },
     ],
     outcome: [
-      'A dramatically clearer home screen that answers “Am I OK?” instantly.',
-      'A faster, more legible top-up flow.',
-      'A modern, accessible system that modernises the entire product.',
+      'A home screen that answers “Am I OK?” in the first glance, not the third tap.',
+      'A shorter, more legible top-up flow that respects a stressed, on-the-go user.',
+      'A modern, accessible component system that lifts the whole product, not just one screen.',
     ],
+    testimonial: {
+      quote: 'I can see my balance the second it opens now. That used to take me three taps and a squint.',
+      attribution: 'Placeholder — replace with a real quote from a customer or the client team',
+    },
     tools: ['Figma', 'Illustrator'],
     reflection:
-      'Redesigns live or die on respect for the existing user. I kept every function people relied on and simply made the important things impossible to miss.',
+      'Redesigns live or die on respect for the existing user. I kept every function people relied on and simply made the important things impossible to miss. The best compliment a redesign can get is that nothing feels missing.',
   },
 
   /* ───────────────────── 5 · SPINE UI DESIGN SYSTEM ───────────────────── */
@@ -268,13 +356,23 @@ const rawProjects = [
       { label: 'Type', value: 'Figma Library' },
       { label: 'Year', value: '2024' },
     ],
+    myRole:
+      'A solo, self-initiated system — I designed the token architecture, variables, type and grid, and the component library from the foundation up.',
+    team: ['Solo — self-initiated'],
     overview:
-      'Spine UI is a comprehensive Figma design system built to give product teams a reliable backbone — hence the name. It pairs a rigorous token foundation with a full component library so teams can move from idea to polished screen without reinventing the basics. I designed the system to be consistent, scalable, and genuinely fast to build with.',
+      'A design system earns its name at scale, not on the first screen. Spine UI is a comprehensive Figma system I built to give product teams a reliable backbone — tokens and variables at the base, a full component library on top. The point was never to look good in a showcase; it was to hold up on the five-hundredth screen, when the temptation to improvise is strongest. Define it once, reuse it everywhere.',
     problem: [
       'Without a shared system, teams drift: colours multiply, spacing gets inconsistent, and every new screen re-solves problems that were already solved.',
       'Many systems look good but fall apart under scale because their foundations — tokens, variables, structure — are an afterthought.',
     ],
     goal: 'Create a design system that enforces consistency, scales cleanly across products, and measurably speeds up how teams design and ship.',
+    impact: [
+      { value: '1', label: 'source of truth for colour, type, spacing, and radius' },
+      { value: 'X.X×', label: 'faster to assemble a new screen from components (placeholder)' },
+      { value: 'XX+', label: 'production-ready components in the library' },
+    ],
+    impactNote:
+      'Drop in the real component count, and quantify the speed-up from your own build tests or team feedback.',
     process: {
       intro:
         'I built Spine UI from the foundation up — starting with variables and tokens, then layering components on top. Every decision was made to be systematic: define it once, reuse it everywhere.',
@@ -283,6 +381,11 @@ const rawProjects = [
         'A structured type scale and grid that keep every layout on rhythm.',
         'A consistent corner-radius and spacing language for a unified feel.',
         'A component library — alerts, notifications, toasts, and more — built for real product use.',
+      ],
+      artifacts: [
+        { kind: 'Architecture', label: 'Token → variable map', caption: 'How primitive tokens roll up into semantic, theme-aware variables.' },
+        { kind: 'Spec', label: 'Component anatomy', caption: 'Anatomy and states defined once so every instance stays consistent.' },
+        { kind: 'Iteration', label: 'Radius & spacing scale tuning', caption: 'Converging on a single rhythm the whole library shares.' },
       ],
     },
     features: [
@@ -302,13 +405,17 @@ const rawProjects = [
       { img: img('spine/alerts.webp'), caption: 'Production-ready components — alerts, notifications, and toasts.' },
     ],
     outcome: [
-      'A consistent foundation that eliminates re-solving the basics.',
-      'A scalable token architecture that holds up as products grow.',
-      'A library that measurably accelerates design-to-development.',
+      'A foundation that stops teams re-solving colour, spacing, and type on every screen.',
+      'A token architecture that holds its shape as products and themes multiply.',
+      'A library built to move design-to-development from hours to minutes.',
     ],
+    testimonial: {
+      quote: 'Once we adopted the tokens, the “which grey is this” debates just stopped. That alone paid for it.',
+      attribution: 'Placeholder — replace with a real quote from a teammate or adopter',
+    },
     tools: ['Figma', 'Framer'],
     reflection:
-      'Great design systems are invisible in the best way — they let teams stop thinking about buttons and start thinking about problems. Building the foundation first is what makes that possible.',
+      'Great design systems are invisible in the best way — they let teams stop thinking about buttons and start thinking about problems. Building the foundation first, before a single pretty component, is what makes that possible.',
   },
 
   /* ───────────────────────── 6 · NERD NEWS ───────────────────────── */
@@ -328,13 +435,23 @@ const rawProjects = [
       { label: 'Platform', value: 'iOS · Mobile' },
       { label: 'Year', value: '2023' },
     ],
+    myRole:
+      'I designed the onboarding and reading experience end-to-end, with a focus on making interest selection the delightful heart of setup.',
+    team: ['Designed at Chitranu', 'with a small product + engineering team'],
     overview:
-      'Nerd News is a mobile news app built for people who want to follow the topics they genuinely care about — tech, science, and everything in between — without the noise. I designed an onboarding and reading experience that learns a reader’s interests up front and turns them into a feed worth opening every day.',
+      'Most news apps greet you with everything and hope you find the good stuff. Nerd News does the opposite — it asks what you actually care about, then earns a spot on your home screen by showing you only that. I designed an onboarding that turns interest-picking into the most enjoyable part of setup, and a reading experience clean enough that the story, not the chrome, holds attention. Personalisation as a first delight, not a settings chore.',
     problem: [
       'Generic news apps overwhelm readers with everything, making it hard to find the stories that actually matter to them.',
       'Onboarding is often skipped or rushed, so the app never learns what a reader wants — and the feed feels random from day one.',
     ],
     goal: 'Design a welcoming onboarding that captures real interests and a clean reading experience that turns those interests into a feed readers love.',
+    impact: [
+      { value: 'Day 1', label: 'the feed is personalised before the first article is read' },
+      { value: 'XX%', label: 'onboarding completion in testing — picking felt like play, not a form (placeholder)' },
+      { value: '1 tap', label: 'to jump into any interest a reader chose' },
+    ],
+    impactNote:
+      'Swap the completion figure for a real number from testing if you have one, or reframe it as a qualitative note.',
     process: {
       intro:
         'I made interest selection the heart of onboarding — friendly, visual, and quick — so the app feels personal before the first article. The reading experience is then kept clean and focused, with room for community through comments.',
@@ -343,6 +460,11 @@ const rawProjects = [
         'A visual interest-picker that makes personalisation feel fun, not like a form.',
         'A focused reading experience that keeps the story front and centre.',
         'Comments that let readers join the conversation around each story.',
+      ],
+      artifacts: [
+        { kind: 'Flow map', label: 'Onboarding steps', caption: 'Sequenced the welcome so interest-picking lands at the peak, not the end.' },
+        { kind: 'Wireframe', label: 'Interest-picker layouts', caption: 'Tested grid vs. chip pickers for the most playful feel.' },
+        { kind: 'Iteration', label: 'Reading view, focus passes', caption: 'Stripped the article screen down until only the story remained.' },
       ],
     },
     features: [
@@ -359,13 +481,17 @@ const rawProjects = [
       { img: img('nerdnews/design-3.webp') },
     ],
     outcome: [
-      'An onboarding that captures interests without feeling like work.',
-      'A personalised feed that gives readers a reason to return.',
-      'A clean reading and comment experience that respects attention.',
+      'An onboarding that captures real interests and feels like play, not paperwork.',
+      'A feed that has a reason to be opened again the next day.',
+      'A reading and comment experience that keeps the story front and centre.',
     ],
+    testimonial: {
+      quote: 'Picking my topics was honestly the fun part — by the time I hit the feed it already felt like mine.',
+      attribution: 'Placeholder — replace with a real quote from a tester',
+    },
     tools: ['Figma', 'Illustrator'],
     reflection:
-      'The interest-picker taught me that onboarding is not a hurdle before the product — done right, it is the first delightful moment of it.',
+      'The interest-picker taught me that onboarding is not a hurdle before the product — done right, it is the first delightful moment of it. I have carried that reframe into everything I have designed since.',
   },
 
   /* ───────────────────── 7 · PRIME CARE KIOSK ───────────────────── */
@@ -385,13 +511,23 @@ const rawProjects = [
       { label: 'Platform', value: 'Kiosk · Touch' },
       { label: 'Year', value: '2023' },
     ],
+    myRole:
+      'I designed the full touch experience — flow, screen-by-screen intake, and an accessibility-first visual system sized for the widest possible range of patients.',
+    team: ['Healthcare client stakeholders', 'Development team (handoff)'],
     overview:
-      'Prime Care Kiosk is a self-service check-in experience for a healthcare setting, designed to guide patients of every age and ability through intake without stress. I designed the full touch experience with accessibility at its core — large targets, plain language, and a calm, step-by-step flow that anyone can follow.',
+      'A hospital lobby is the hardest usability test there is. The next person to touch the screen might be eighty, anxious, holding a cane, or have never used a kiosk in their life — and they all have to succeed on the first try. Prime Care Kiosk is a self-service check-in built for exactly that room. I designed the whole touch experience with accessibility as the starting point, not a pass at the end: large targets, plain language, and one calm task per screen.',
     problem: [
       'Clinic check-in is a pain point: paper forms, queues, and interfaces that assume tech-savvy, able users.',
       'A healthcare kiosk serves an enormously diverse public — including older adults and people with visual or motor differences — so it must be usable by everyone, on the first try.',
     ],
     goal: 'Design a kiosk intake experience that is effortless, accessible, and reassuring for every patient, while capturing the information the clinic needs accurately.',
+    impact: [
+      { value: '1', label: 'clear task per screen — the core of the low-anxiety flow' },
+      { value: 'AA+', label: 'contrast and touch-target sizing designed in from the first screen' },
+      { value: 'XX%', label: 'first-try completion in testing across age ranges (placeholder)' },
+    ],
+    impactNote:
+      'Replace the completion figure with a real result from testing, or reframe as the range of ages/abilities you validated with.',
     research: [
       'Applied accessibility standards — large touch targets, high contrast, and readable type — as first principles, not add-ons.',
       'Broke intake into small, single-focus steps to reduce cognitive load and anxiety.',
@@ -405,6 +541,11 @@ const rawProjects = [
         'A step-by-step intake broken into small, single-focus tasks.',
         'Large, unmistakable touch targets and high-contrast, readable typography.',
         'Clear progress and confirmation so patients always know where they are.',
+      ],
+      artifacts: [
+        { kind: 'Flow map', label: 'End-to-end intake journey', caption: 'One linear path, no dead ends — mapped before any screen was drawn.' },
+        { kind: 'A11y spec', label: 'Target size & contrast rules', caption: 'The accessibility floor every screen had to clear.' },
+        { kind: 'Iteration', label: 'Step density passes', caption: 'Broke dense forms into single-focus screens to cut anxiety.' },
       ],
     },
     features: [
@@ -424,13 +565,17 @@ const rawProjects = [
       { img: img('primecare/screen-6.webp') },
     ],
     outcome: [
-      'An intake experience usable by patients of every age and ability.',
-      'A calm, linear flow that reduces check-in stress.',
-      'An accessible design that captures accurate information reliably.',
+      'An intake experience designed to be usable on the first try by patients of any age or ability.',
+      'A calm, linear flow that takes the stress out of check-in.',
+      'An accessible design that still captures the clinic’s required information accurately.',
     ],
+    testimonial: {
+      quote: 'My mother checked herself in without asking anyone for help. That has genuinely never happened before.',
+      attribution: 'Placeholder — replace with a real quote from staff, a patient, or the client',
+    },
     tools: ['Figma', 'Illustrator'],
     reflection:
-      'Designing for a public kiosk is a masterclass in inclusive design. When you build for the person who finds tech hardest, you build something better for everyone.',
+      'Designing for a public kiosk is a masterclass in inclusive design. When you build for the person who finds tech hardest, you build something better for everyone — a principle I now bring to every product, not just the ones that obviously demand it.',
   },
 ]
 

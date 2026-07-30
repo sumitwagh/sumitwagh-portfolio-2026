@@ -5,8 +5,6 @@ import signature from '../assets/img/signature.svg'
 import portrait from '../assets/img/portrait.webp'
 import TravelGallery from '../components/TravelGallery'
 
-const sectionHeading = 'text-[28px] leading-tight sm:text-[32px] lg:text-[36px]'
-
 const story = [
   `I grew up in Sillod, a small town an hour from the Ajanta caves, where the family computer was the most interesting thing in the house. It did exactly what you told it to — no more, no less — and that bargain still fascinates me.`,
   `I took a Computer Science degree, moved to Hyderabad, and spent a few years building for the web in PHP, JavaScript, HTML and CSS. Code taught me how products actually work; it took a freelancer friend nudging me toward UI/UX before I realised I cared far more about why they work.`,
@@ -37,7 +35,7 @@ export default function About() {
       <span className="font-medium text-ink dark:text-white">
         Sumit Wagh
       </span>
-      , a Product Designer based in Pune, India. For the past seven years,
+      , a Senior UI Designer based in Pune, India. For the past seven years,
       I've been designing enterprise healthcare, AI, and SaaS products that
       simplify complex workflows into intuitive experiences.
     </p>
@@ -73,7 +71,7 @@ export default function About() {
       <div className="space-y-14">
 
         <section>
-          <p className="mb-3 text-md uppercase text-ink/70 dark:text-white/40" style={{ letterSpacing: "0.12em" }}>
+          <p className="mb-3 text-md uppercase text-ink/70 dark:text-white/60" style={{ letterSpacing: "0.12em" }}>
             How It Started
           </p>
 
@@ -83,7 +81,7 @@ export default function About() {
         </section>
 
         <section>
-          <p className="mb-3 text-md uppercase text-ink/70 dark:text-white/40" style={{ letterSpacing: "0.12em" }}>
+          <p className="mb-3 text-md uppercase text-ink/70 dark:text-white/60" style={{ letterSpacing: "0.12em" }}>
             From Code to Design
           </p>
 
@@ -93,7 +91,7 @@ export default function About() {
         </section>
 
         <section>
-          <p className="mb-3 text-md uppercase text-ink/70 dark:text-white/40" style={{ letterSpacing: "0.12em" }}>
+          <p className="mb-3 text-md uppercase text-ink/70 dark:text-white/60" style={{ letterSpacing: "0.12em" }}>
             Why Healthcare
           </p>
 
@@ -103,7 +101,7 @@ export default function About() {
         </section>
 
         <section>
-          <p className="mb-3 text-md uppercase text-ink/70 dark:text-white/40" style={{ letterSpacing: "0.12em" }}>
+          <p className="mb-3 text-md uppercase text-ink/70 dark:text-white/60" style={{ letterSpacing: "0.12em" }}>
             What Keeps Me Curious
           </p>
 
@@ -121,13 +119,16 @@ export default function About() {
       {/* Off screen — horizontal travel gallery */}
       <TravelGallery />
 
-      {/* Books — premium hover interaction */}
-      <section className="container-site mt-24 md:mt-32">
+      {/* Books — a light personal footnote, kept compact */}
+      <section className="container-site mt-16 md:mt-20">
         <Reveal>
-          <h2 className={sectionHeading}>Books I really like</h2>
+          <p className="eyebrow">On my shelf</p>
+          <h2 className="mt-2 text-[22px] leading-tight text-ink/80 dark:text-white/80 sm:text-[26px]">
+            A few books I keep coming back to
+          </h2>
         </Reveal>
-        <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-          {books.map((b, i) => (
+        <div className="mt-8 grid grid-cols-3 gap-x-5 gap-y-8 sm:grid-cols-4 md:grid-cols-6">
+          {books.slice(0, 6).map((b, i) => (
             <Reveal key={b.title} delay={(i % 6) * 0.05}>
               <figure className="group [perspective:1000px]">
                 <div className="relative overflow-hidden rounded-lg shadow-sm transition-all duration-500 ease-smooth will-change-transform group-hover:-translate-y-2 group-hover:rotate-[-1.5deg] group-hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.35)]">

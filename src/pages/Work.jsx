@@ -13,7 +13,7 @@ export default function Work() {
       />
       <Reveal>
         <h1 className="text-[clamp(2.4rem,5vw,3.75rem)]">Selected Work</h1>
-        <p className="mt-2 text-xl text-ink/60 dark:text-white/60">
+        <p className="mt-2 text-xl text-ink/70 dark:text-white/70">
           A closer look at how I approach problems — the thinking, the process, and the outcomes.
         </p>
       </Reveal>

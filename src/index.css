@@ -97,7 +97,7 @@
   }
 
   .eyebrow {
-    @apply text-[15px] uppercase text-ink/50 dark:text-white/50;
+    @apply text-[15px] uppercase text-ink/70 dark:text-white/65;
   }
 
 .btn-pill {

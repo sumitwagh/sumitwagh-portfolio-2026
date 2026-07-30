@@ -65,6 +65,28 @@ function PageTransition({ children }) {
 
 const wrap = (el) => <PageTransition>{el}</PageTransition>
 
+// Shown while a lazy route chunk loads, so navigating directly to a page
+// (e.g. /work) never flashes an empty screen. Mirrors the page layout with
+// a calm pulse instead of a blank gap.
+function RouteSkeleton() {
+  return (
+    <div className="container-site pt-16 md:pt-24" aria-hidden="true">
+      <div className="animate-pulse">
+        <div className="h-12 w-2/3 max-w-md rounded-xl bg-ink/[0.06] dark:bg-white/[0.06] md:h-16" />
+        <div className="mt-4 h-5 w-1/2 max-w-sm rounded-lg bg-ink/[0.05] dark:bg-white/[0.05]" />
+        <div className="mt-14 grid gap-x-8 gap-y-16 md:grid-cols-2">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i}>
+              <div className="aspect-[16/10] w-full rounded-2xl bg-ink/[0.06] dark:bg-white/[0.06]" />
+              <div className="mt-4 h-5 w-1/3 rounded-lg bg-ink/[0.05] dark:bg-white/[0.05]" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function App() {
   const location = useLocation()
 
@@ -74,7 +96,7 @@ export default function App() {
       <GradientBg />
       <Navbar />
       <div className="relative z-10 flex-1">
-        <Suspense fallback={<div className="min-h-[60vh]" />}>
+        <Suspense fallback={<RouteSkeleton />}>
           <AnimatePresence mode="wait" initial={false}>
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={wrap(<Home />)} />
