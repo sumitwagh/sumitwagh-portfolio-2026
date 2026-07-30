@@ -13,7 +13,7 @@ import illustration from "../assets/img/profile-illustration.svg";
 import Stat from "../components/Stats";
 
 const words =
-  "Designing enterprise healthcare experiences that feel effortless.".split(
+  "Designing user interfaces that make complex products feel simple.".split(
     " ",
   );
 
@@ -28,8 +28,8 @@ export default function Home() {
   return (
     <main>
       <Seo
-        title="Product Designer"
-        description="Sumit Wagh is a product designer in Pune, India — seven years turning complex healthcare and SaaS products into software people can trust."
+        title="Senior UI Designer"
+        description="Senior UI designer based in Pune, India — seven years turning complex healthcare and SaaS products into software people can trust."
         path="/"
       />
 
@@ -56,7 +56,7 @@ export default function Home() {
               </a>
             </Reveal> */}
 
-            <h1 className="mt-7 w-full text-[clamp(2.1rem,5.6vw,64px)] leading-[1.02]">
+            <h1 className="mt-7 w-full text-[clamp(2.1rem,5.6vw,68px)] leading-[1.00]">
               {words.map((w, i) => (
                 <motion.span
                   key={w + i}
@@ -73,10 +73,10 @@ export default function Home() {
                 </motion.span>
               ))}
             </h1>
-
+     
             <Reveal delay={0.4}>
               <p className="mt-6 text-[18px] leading-relaxed text-ink/70 dark:text-white/50 md:text-[22px]">
-                Product Designer with 7+ years of experience crafting enterprise
+                Senior UI Designer with 7 years of experience crafting enterprise
                 healthcare, AI, and SaaS products. I simplify complex workflows
                 into intuitive experiences that help teams work faster and make
                 better decisions
@@ -114,7 +114,7 @@ export default function Home() {
         </div>
       </section>
       {/* Hero Stats */}
-     <section className="mt-20">
+     {/* <section className="mt-20">
   <div className="container-site">
     <Reveal delay={0.2}>
       <div className="border-y border-line py-6 dark:border-white/10">
@@ -154,7 +154,7 @@ export default function Home() {
       </div>
     </Reveal>
   </div>
-</section>
+</section> */}
       {/* Selected Works */}
       <section
         id="selected-work"

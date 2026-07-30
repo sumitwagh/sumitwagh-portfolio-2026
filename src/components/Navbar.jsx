@@ -7,8 +7,8 @@ import { RESUME_URL } from '../data/site'
 
 const links = [
   { to: '/work', label: 'Work' },
-  { to: '/shots', label: 'Shots' },
-  { to: '/uses', label: 'Uses' },
+  // { to: '/shots', label: 'Shots' },
+  // { to: '/uses', label: 'Uses' },
   { to: '/about', label: 'About' },
 ]
 

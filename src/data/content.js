@@ -47,7 +47,7 @@ export const journey = [
     role: 'Senior UI Designer',
     period: '2021 — Present',
     dateShort: "'21 — Present",
-    location: 'Remote',
+    location: 'Mumbai',
     current: true,
     start: 2021,
     end: null,

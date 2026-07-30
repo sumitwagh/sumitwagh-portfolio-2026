@@ -66,8 +66,8 @@ export default function Experience() {
                       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="flex flex-col gap-4 pt-7 md:pl-10">
-                        <p className="max-w-xl text-[18px] leading-relaxed text-ink/65 dark:text-white/60">{j.summary}</p>
+                      <div className="flex flex-col gap-4 pt-7">
+                        <p className="max-w-2xl text-[18px] leading-relaxed text-ink/65 dark:text-white/60">{j.summary}</p>
                         {j.tags?.length > 0 && (
                           <ul className="flex flex-wrap gap-2">
                             {j.tags.map((t) => (
